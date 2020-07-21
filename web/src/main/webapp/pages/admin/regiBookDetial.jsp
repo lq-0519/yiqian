@@ -23,7 +23,7 @@
 <body>
 <jsp:include page="header.jsp"/>
 <div id="div1" class="col-md-4">
-    <form action="${pageContext.request.contextPath}/regiBook/updateById_bookName_author">
+    <form action="${pageContext.request.contextPath}/regiBook/updateById_bookName_author_remarks">
         <input type="hidden" name="id" value="${regiBook.id}">
         <div class="form-group">
             <label for="exampleInputEmail1">用户名</label>
@@ -39,7 +39,7 @@
         </div>
         <div class="form-group">
             <label for="exampleInputPassword14">备注</label>
-            <textarea id="exampleInputPassword14" disabled class="form-control"
+            <textarea id="exampleInputPassword14" name="remarks" class="form-control"
                       rows="2">${regiBook.remarks}</textarea>
         </div>
         <div class="form-group">

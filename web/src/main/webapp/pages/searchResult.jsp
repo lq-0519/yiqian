@@ -72,28 +72,28 @@
     <div id="div3">
         <nav aria-label="Page navigation">
             <ul class="pagination">
-                <li><a href="${pageContext.request.contextPath}/book/findByBookName?bookName=${bookName}&page=1">首页</a>
+                <li><a href="${pageContext.request.contextPath}/book/findByBookName?bookName=${bookName}&page=1&isSave=0">首页</a>
                 </li>
                 <li>
-                    <a href="${pageContext.request.contextPath}/book/findByBookName?bookName=${bookName}&page=${pageInfo.pageNum-1}">上一页</a>
+                    <a href="${pageContext.request.contextPath}/book/findByBookName?bookName=${bookName}&page=${pageInfo.pageNum-1}&isSave=0">上一页</a>
                 </li>
                 <c:forEach items="${pageInfo.navigatepageNums}" var="pageNum">
                     <c:if test="${pageInfo.pageNum==pageNum}">
                         <li class="active"><a
-                                href="${pageContext.request.contextPath}/book/findByBookName?bookName=${bookName}&page=${pageNum}">${pageNum}</a>
+                                href="${pageContext.request.contextPath}/book/findByBookName?bookName=${bookName}&page=${pageNum}&isSave=0">${pageNum}</a>
                         </li>
                     </c:if>
                     <c:if test="${pageInfo.pageNum!=pageNum}">
                         <li><a
-                                href="${pageContext.request.contextPath}/book/findByBookName?bookName=${bookName}&page=${pageNum}">${pageNum}</a>
+                                href="${pageContext.request.contextPath}/book/findByBookName?bookName=${bookName}&page=${pageNum}&isSave=0">${pageNum}</a>
                         </li>
                     </c:if>
                 </c:forEach>
                 <li>
-                    <a href="${pageContext.request.contextPath}/book/findByBookName?bookName=${bookName}&page=${pageInfo.pageNum+1}">下一页</a>
+                    <a href="${pageContext.request.contextPath}/book/findByBookName?bookName=${bookName}&page=${pageInfo.pageNum+1}&isSave=0">下一页</a>
                 </li>
                 <li>
-                    <a href="${pageContext.request.contextPath}/book/findByBookName?bookName=${bookName}&page=${pageInfo.pages}">尾页</a>
+                    <a href="${pageContext.request.contextPath}/book/findByBookName?bookName=${bookName}&page=${pageInfo.pages}&isSave=0">尾页</a>
                 </li>
             </ul>
         </nav>

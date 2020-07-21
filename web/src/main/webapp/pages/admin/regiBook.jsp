@@ -69,7 +69,7 @@
                 <%--遍历表数据--%>
                 <c:forEach items="${pageInfo.list}" var="regiBook">
                     <tr>
-                        <td style="vertical-align:middle;">${regiBook.invitationCode.username}</td>
+                        <td style="vertical-align:middle;"> <a href="${pageContext.request.contextPath}/invitationCode/showInvitationCodeDetials?id=${regiBook.invitationCodeId}">${regiBook.invitationCode.username}</a> </td>
                         <td style="vertical-align:middle;">${regiBook.bookName}</td>
                         <td style="vertical-align:middle;">${regiBook.author}</td>
                         <td style="vertical-align:middle;">${regiBook.remarks}</td>

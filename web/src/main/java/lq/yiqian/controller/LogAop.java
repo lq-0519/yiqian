@@ -59,6 +59,7 @@ public class LogAop {
     @After("execution(* lq.yiqian.controller.*.*(..))")
     public void doAfter(JoinPoint joinPoint) {
         if (aClass != null && aClass != LogAop.class && aClass != SysLogController.class) {
+//            String s = request.getRequestURL().toString();
             //获取访问的时长
             long time = new Date().getTime() - visitTime.getTime();
             //获取访问的ip地址

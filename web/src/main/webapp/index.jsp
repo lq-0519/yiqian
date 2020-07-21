@@ -31,10 +31,10 @@
 </head>
 <body>
 <jsp:include page="pages/header.jsp"/>
+<%--<%@include file="pages/header.jsp"%>--%>
 <div class="container-fluid">
     <p id="p1" class="lead col-md-offset-1">${applicationScope.noticeIndex}</p>
     <div>
-
         <img class="img-responsive col-md-7 " src="img/img1.jpeg">
         <img class="img-responsive col-md-7 " src="img/img2.JPEG">
         <img class="img-responsive col-md-7 " src="img/img3.JPEG">

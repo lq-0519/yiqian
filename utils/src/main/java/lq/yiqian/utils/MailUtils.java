@@ -26,6 +26,8 @@ public final class MailUtils {
             final Properties props = new Properties();
             props.put("mail.smtp.auth", "true");
             props.put("mail.smtp.host", "smtp.qq.com");
+            props.setProperty("mail.smtp.port", "465");
+            props.setProperty("mail.smtp.ssl.enable", "true");
 
             // 发件人的账号
             props.put("mail.user", USER);

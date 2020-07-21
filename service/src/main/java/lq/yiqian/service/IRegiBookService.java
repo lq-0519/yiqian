@@ -15,7 +15,7 @@ public interface IRegiBookService {
 
     RegiBook findById(Integer id);
 
-    void updateById_bookName_author(Integer id, String bookName, String author);
+    void updateById_bookName_author_remarks(RegiBook regiBook);
 
     void updateById_result_isFund(Integer id, String result);
 

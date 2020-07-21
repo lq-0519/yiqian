@@ -140,10 +140,9 @@ public class RegiBookController {
      * @param regiBook
      * @return
      */
-    @RequestMapping("/updateById_bookName_author")
-    public String updateById_bookName_author(RegiBook regiBook) {
-        System.out.println("regiBook = " + regiBook);
-        regiBookService.updateById_bookName_author(regiBook.getId(), regiBook.getBookName(), regiBook.getAuthor());
+    @RequestMapping("/updateById_bookName_author_remarks")
+    public String updateById_bookName_author_remarks(RegiBook regiBook) {
+        regiBookService.updateById_bookName_author_remarks(regiBook);
         return "redirect:findByUntreated";
     }
 

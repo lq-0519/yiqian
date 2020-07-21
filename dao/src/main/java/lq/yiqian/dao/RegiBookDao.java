@@ -74,12 +74,10 @@ public interface RegiBookDao {
     /**
      * 更新书名和作者
      *
-     * @param id
-     * @param bookName
-     * @param author
+     * @param regiBook
      */
-    @Update("update regiBook set bookName = #{bookName}, author = #{author} where id = #{id}")
-    void updateById_bookName_author(@Param("id") Integer id, @Param("bookName") String bookName, @Param("author") String author);
+    @Update("update regiBook set bookName = #{bookName}, author = #{author}, remarks = #{remarks} where id = #{id}")
+    void updateById_bookName_author_remarks(RegiBook regiBook);
 
     /**
      * 更新找书结果

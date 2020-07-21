@@ -65,13 +65,11 @@ public class RegiBookService implements IRegiBookService {
     /**
      * 更新书名和作者
      *
-     * @param id
-     * @param bookName
-     * @param author
+     * @param regiBook
      */
     @Override
-    public void updateById_bookName_author(Integer id, String bookName, String author) {
-        regiBookDao.updateById_bookName_author(id, bookName, author);
+    public void updateById_bookName_author_remarks(RegiBook regiBook) {
+        regiBookDao.updateById_bookName_author_remarks(regiBook);
     }
 
     /**

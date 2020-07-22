@@ -24,6 +24,7 @@ import java.io.IOException;
         "/regiBook/updateById_bookName_author",
         "/regiBook/updateResult",
         "/regiBook/findByIsFundAdmin",
+        "/regiBook/delById",
         "/searchHistory/showSearchHistory",
         "/sysLog/*",
         "/variable/updateNotice",

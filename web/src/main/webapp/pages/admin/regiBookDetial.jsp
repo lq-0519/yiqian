@@ -19,6 +19,17 @@
             padding-left: 3%;
         }
     </style>
+    <script>
+        /**
+         * 删除的确认操作
+         * @param id
+         */
+        function del(id) {
+            if (confirm("确定要删除吗？")) {
+                location.href = "${pageContext.request.contextPath}/regiBook/delById?id=" + id;
+            }
+        }
+    </script>
 </head>
 <body>
 <jsp:include page="header.jsp"/>
@@ -27,15 +38,18 @@
         <input type="hidden" name="id" value="${regiBook.id}">
         <div class="form-group">
             <label for="exampleInputEmail1">用户名</label>
-            <input type="text" class="form-control" value="${regiBook.invitationCode.username}" id="exampleInputEmail1" disabled>
+            <input type="text" class="form-control" value="${regiBook.invitationCode.username}" id="exampleInputEmail1"
+                   disabled>
         </div>
         <div class="form-group">
             <label for="exampleInputPassword12">书名</label>
-            <input type="text" name="bookName" class="form-control" value="${regiBook.bookName}" id="exampleInputPassword12">
+            <input type="text" name="bookName" class="form-control" value="${regiBook.bookName}"
+                   id="exampleInputPassword12">
         </div>
         <div class="form-group">
             <label for="exampleInputPassword13">作者</label>
-            <input type="text" name="author" class="form-control" value="${regiBook.author}" id="exampleInputPassword13">
+            <input type="text" name="author" class="form-control" value="${regiBook.author}"
+                   id="exampleInputPassword13">
         </div>
         <div class="form-group">
             <label for="exampleInputPassword14">备注</label>
@@ -44,11 +58,14 @@
         </div>
         <div class="form-group">
             <label for="exampleInputPassword15">登记时间</label>
-            <input type="text" class="form-control" value="<fmt:formatDate value="${regiBook.regiDate}" pattern="yyyy-MM-dd HH:MM:ss"/>" id="exampleInputPassword15" disabled>
+            <input type="text" class="form-control"
+                   value="<fmt:formatDate value="${regiBook.regiDate}" pattern="yyyy-MM-dd HH:MM:ss"/>"
+                   id="exampleInputPassword15" disabled>
         </div>
         <div class="form-group">
             <label for="exampleInputPassword16">登记使用的邀请码</label>
-            <input type="text" class="form-control" value="${regiBook.invitationCodeId}" id="exampleInputPassword16" disabled>
+            <input type="text" class="form-control" value="${regiBook.invitationCodeId}" id="exampleInputPassword16"
+                   disabled>
         </div>
         <div class="form-group">
             <label for="exampleInputPassword18">登记使用的邮箱</label>
@@ -56,9 +73,11 @@
         </div>
         <div class="form-group">
             <label for="exampleInputPassword17">当前邀请码登记总数</label>
-            <input type="text" class="form-control" value="${regiBook.invitationCode.sum}" id="exampleInputPassword17" disabled>
+            <input type="text" class="form-control" value="${regiBook.invitationCode.sum}" id="exampleInputPassword17"
+                   disabled>
         </div>
         <button type="submit" class="btn btn-default">保存</button>
+        <a onclick="del('${regiBook.id}')" class="btn btn-default">删除</a>
     </form>
 </div>
 </body>

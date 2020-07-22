@@ -20,4 +20,6 @@ public interface IRegiBookService {
     void updateById_result_isFund(Integer id, String result);
 
     List<RegiBook> findAllByInvitationCode(String id, Integer page, int size);
+
+    void delById(String id);
 }

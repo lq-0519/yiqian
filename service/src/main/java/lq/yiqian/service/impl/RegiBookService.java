@@ -85,7 +85,17 @@ public class RegiBookService implements IRegiBookService {
 
     @Override
     public List<RegiBook> findAllByInvitationCode(String id, Integer page, int size) {
-        PageHelper.startPage(page,size);
+        PageHelper.startPage(page, size);
         return regiBookDao.findAllByInvitationCode(id);
+    }
+
+    /**
+     * 根据ID删除
+     *
+     * @param id
+     */
+    @Override
+    public void delById(String id) {
+        regiBookDao.delById(id);
     }
 }

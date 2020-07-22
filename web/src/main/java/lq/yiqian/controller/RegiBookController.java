@@ -244,4 +244,16 @@ public class RegiBookController {
         modelAndView.setViewName("pages/admin/regiBookHasFund");
         return modelAndView;
     }
+
+    /**
+     * 根据id删除
+     *
+     * @param id
+     * @return
+     */
+    @RequestMapping("/delById")
+    public String delById(@RequestParam(name = "id") String id) {
+        regiBookService.delById(id);
+        return "redirect:findByUntreated";
+    }
 }

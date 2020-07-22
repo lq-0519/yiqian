@@ -88,7 +88,21 @@ public interface RegiBookDao {
     @Update("update regiBook set result = #{result}, isFund = 1 where id = #{id}")
     void updateById_result_isFund(@Param("id") Integer id, @Param("result") String result);
 
+    /**
+     * 根据邀请码查询登记过的书
+     *
+     * @param id
+     * @return
+     */
     @Select("select bookName, author, invitationCodeId, remarks, isFund, result, id, regiDate, email from regiBook " +
             "where invitationCodeId = #{id} order by regiDate desc")
     List<RegiBook> findAllByInvitationCode(String id);
+
+    /**
+     * 根据id删除
+     *
+     * @param id
+     */
+    @Delete("delete from regiBook where id = #{id}")
+    void delById(String id);
 }

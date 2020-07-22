@@ -39,7 +39,11 @@
         <input type="password" name="password" id="password" class="form-control" placeholder="password" required>
 
         <font color="red">${loginErrorMsg}</font>
-
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" name="rememberMe" value="remember-me"> 记住我
+            </label>
+        </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">登陆</button>
 
         <font color="gray">有特殊需求可向群主索要密码</font>

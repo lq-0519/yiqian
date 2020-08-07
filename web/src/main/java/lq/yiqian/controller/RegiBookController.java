@@ -188,7 +188,7 @@ public class RegiBookController {
                 bookName = bookName + " " + author;
             }
             // 求出path
-            String path = "后续更新/" + yearAndMonth + "/" + regiDate;
+            String path = "小书屋/06-后续更新/" + yearAndMonth + "/" + regiDate;
             // 插入bookList
             bookListService.save(bookName, path);
         } else if ("1".equals(regiBookResult)) {

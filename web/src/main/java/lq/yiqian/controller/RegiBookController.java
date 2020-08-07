@@ -222,7 +222,10 @@ public class RegiBookController {
             emailResult = emailResult + result + ",\n详情请访问: " +
                     "<a href='http://182.92.81.132/regiBook/findByIsFund'>找书结果</a> " +
                     "\n此邮件为自动发送, 请勿回复!";
-            MailUtils.sendMail(email, emailResult, "壹仟书库 找书结果");
+            String finalEmailResult = emailResult;
+            new Thread(()->{
+                MailUtils.sendMail(email, finalEmailResult, "壹仟书库 找书结果");
+            }).start();
         }
         // 更新regiBook表
         regiBookService.updateById_result_isFund(id, result);

@@ -19,9 +19,6 @@ public final class MailUtils {
      */
     /* 发送验证信息的邮件 */
     public static boolean sendMail(String to, String text, String title) {
-        System.out.println("to = " + to);
-        System.out.println("text = " + text);
-        System.out.println("title = " + title);
         try {
             final Properties props = new Properties();
             props.put("mail.smtp.auth", "true");

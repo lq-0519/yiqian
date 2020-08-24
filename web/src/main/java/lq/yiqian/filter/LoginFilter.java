@@ -44,8 +44,6 @@ public class LoginFilter implements javax.servlet.Filter {
             // 已登录
             chain.doFilter(request, response);
         }
-
-
     }
 
     @Override

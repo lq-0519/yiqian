@@ -223,9 +223,7 @@ public class RegiBookController {
                     "<a href='http://182.92.81.132/regiBook/findByIsFund'>找书结果</a> " +
                     "\n此邮件为自动发送, 请勿回复!";
             String finalEmailResult = emailResult;
-            new Thread(()->{
-                MailUtils.sendMail(email, finalEmailResult, "壹仟书库 找书结果");
-            }).start();
+            new Thread(() -> MailUtils.sendMail(email, finalEmailResult, "壹仟书库 找书结果")).start();
         }
         // 更新regiBook表
         regiBookService.updateById_result_isFund(id, result);

@@ -69,14 +69,16 @@
                 <%--遍历表数据--%>
                 <c:forEach items="${pageInfo.list}" var="regiBook">
                     <tr>
-                        <td style="vertical-align:middle;"> <a href="${pageContext.request.contextPath}/invitationCode/showInvitationCodeDetials?id=${regiBook.invitationCodeId}">${regiBook.invitationCode.username}</a> </td>
+                        <td style="vertical-align:middle;"><a
+                                href="${pageContext.request.contextPath}/invitationCode/showInvitationCodeDetials?id=${regiBook.invitationCodeId}">${regiBook.invitationCode.username}</a>
+                        </td>
                         <td style="vertical-align:middle;">${regiBook.bookName}</td>
                         <td style="vertical-align:middle;">${regiBook.author}</td>
                         <td style="vertical-align:middle;">${regiBook.remarks}</td>
                         <td style="vertical-align:middle;"><fmt:formatDate value="${regiBook.regiDate}"
                                                                            pattern="MMdd"/></td>
                         <td class="td1">
-                            <%--更新找书结果--%>
+                                <%--更新找书结果--%>
                             <form action="${pageContext.request.contextPath}/regiBook/updateResult"
                                   class="form-inline form1">
                                 <input type="hidden" name="id" value="${regiBook.id}">
@@ -101,7 +103,7 @@
                                 </div>
                                 <button type="submit" class="btn btn-default">更新</button>
                             </form>
-                            <%--更新找书结果 /--%>
+                                <%--更新找书结果 /--%>
                         </td>
                         <td style="vertical-align:middle;"><a
                                 href="${pageContext.request.contextPath}/regiBook/findById?id=${regiBook.id}">详情</a>

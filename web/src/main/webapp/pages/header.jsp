@@ -48,6 +48,7 @@
                 <ul class="nav navbar-nav">
                     <li><a href="${pageContext.request.contextPath}/pages/regiBook.jsp">缺书登记</a></li>
                     <li><a href="${pageContext.request.contextPath}/regiBook/findByIsFund">找书结果</a></li>
+                    <li><a href="${pageContext.request.contextPath}/searchHistory/showTopSearch">书库热搜</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                            aria-expanded="false">常用教程 <span class="caret"></span></a>

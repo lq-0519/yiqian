@@ -1,6 +1,7 @@
 package lq.yiqian.service;
 
 import lq.yiqian.domain.SearchHistory;
+import lq.yiqian.domain.TopSearch;
 
 import java.util.List;
 
@@ -16,4 +17,6 @@ public interface ISearchHistoryService {
     List<SearchHistory> findAllByPage(Integer page, Integer i);
 
     void save(SearchHistory searchHistory);
+
+    List<TopSearch> findTopSearch(Integer page, Integer size);
 }

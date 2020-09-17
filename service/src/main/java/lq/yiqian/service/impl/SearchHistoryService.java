@@ -3,6 +3,7 @@ package lq.yiqian.service.impl;
 import com.github.pagehelper.PageHelper;
 import lq.yiqian.dao.SearchHistoryDao;
 import lq.yiqian.domain.SearchHistory;
+import lq.yiqian.domain.TopSearch;
 import lq.yiqian.service.ISearchHistoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -63,5 +64,19 @@ public class SearchHistoryService implements ISearchHistoryService {
     @Override
     public void save(SearchHistory searchHistory) {
         searchHistoryDao.save(searchHistory);
+    }
+
+    /**
+     * 查询书库热搜
+     *
+     * @param page
+     * @param size
+     * @return
+     */
+    @Override
+    public List<TopSearch> findTopSearch(Integer page, Integer size) {
+        PageHelper.startPage(page, size);
+        List<TopSearch> topSearch = searchHistoryDao.findTopSearch();
+        return topSearch;
     }
 }

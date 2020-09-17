@@ -1,6 +1,7 @@
 package lq.yiqian.dao;
 
 import lq.yiqian.domain.SearchHistory;
+import lq.yiqian.domain.TopSearch;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 
@@ -45,4 +46,14 @@ public interface SearchHistoryDao {
     @Insert("insert into searchHistory(ip, searchTime, bookName, result) " +
             " values(#{ip},#{searchTime},#{bookName},#{result})")
     void save(SearchHistory searchHistory);
+
+    /**
+     * 查询书库热搜
+     * <p>
+     * 根据书名分组, 然后在排序
+     *
+     * @return
+     */
+    @Select("select bookName, count(*) numberOfSearches from searchHistory group by bookName ORDER BY count(*) DESC ")
+    List<TopSearch> findTopSearch();
 }

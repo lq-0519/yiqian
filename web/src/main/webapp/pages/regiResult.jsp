@@ -40,9 +40,9 @@
 <jsp:include page="header.jsp"/>
 
 <div class="container-fluid">
-    <div id="div1" class="col-md-9">
-        <div class="col-md-7">
-            <p class="lead col-md-7" id="p1">${applicationScope.noticeRigiBookResult}</p>
+    <div id="div1" class="col-md-10">
+        <div>
+            <p class="lead col-lg-9" id="p1">${applicationScope.noticeRigiBookResult}</p>
         </div>
         <div id="div2" class="table-responsive col-md-8 ">
             <%--根据日期展示数据--%>
@@ -54,7 +54,7 @@
                 <c:if test="${oldDay==newDay}">
                     <tr>
                         <td> ${regiBook.bookName}</td>
-                        <td>（${regiBook.result}）</td>
+                        <td>${regiBook.result}</td>
                     </tr>
                 </c:if>
                 <c:if test="${oldDay!=newDay}">
@@ -64,7 +64,7 @@
             <table class="table table-hover">
                 <tr>
                     <td> ${regiBook.bookName} </td>
-                    <td>（${regiBook.result}）</td>
+                    <td>${regiBook.result}</td>
                 </tr>
                 </c:if>
                 </c:forEach>

@@ -186,5 +186,10 @@
             <artifactId>javax.mail</artifactId>
             <version>1.5.3</version>
         </dependency>
+        <dependency>
+            <groupId>eu.bitwalker</groupId>
+            <artifactId>UserAgentUtils</artifactId>
+            <version>1.20</version>
+        </dependency>
     </dependencies>
 </project>

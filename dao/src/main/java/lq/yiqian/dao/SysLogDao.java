@@ -20,8 +20,8 @@ public interface SysLogDao {
      *
      * @param sysLog
      */
-    @Insert("insert into sysLog(visitTime, ip, executionTime, method )" +
-            " values(#{visitTime}, #{ip},  #{executionTime}, #{method})")
+    @Insert("insert into sysLog(visitTime, ip, executionTime, method, browser, operatingSystem )" +
+            " values(#{visitTime}, #{ip},  #{executionTime}, #{method}, #{browser}, #{operatingSystem})")
     void save(SysLog sysLog);
 
     /**
@@ -30,7 +30,7 @@ public interface SysLogDao {
      * @param s
      * @return
      */
-    @Select("select id, visitTime, ip, method, executionTime from sysLog " +
+    @Select("select id, visitTime, ip, method, executionTime, browser, operatingSystem from sysLog " +
             "where  method like #{s} order by visitTime desc ")
     List<SysLog> findByMethod(String s);
 }

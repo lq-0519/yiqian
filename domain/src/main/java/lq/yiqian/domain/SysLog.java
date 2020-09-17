@@ -13,6 +13,24 @@ public class SysLog {
     private String ip;// 访问者的ip
     private Long executionTime;// 访问时长
     private String method;// 访问的方法
+    private String browser;// 访问者的浏览器
+    private String operatingSystem;// 访问者的操作系统
+
+    public String getBrowser() {
+        return browser;
+    }
+
+    public void setBrowser(String browser) {
+        this.browser = browser;
+    }
+
+    public String getOperatingSystem() {
+        return operatingSystem;
+    }
+
+    public void setOperatingSystem(String operatingSystem) {
+        this.operatingSystem = operatingSystem;
+    }
 
     public SysLog() {
     }
@@ -57,11 +75,13 @@ public class SysLog {
         this.method = method;
     }
 
-    public SysLog(Integer id, Date visitTime, String ip, Long executionTime, String method) {
+    public SysLog(Integer id, Date visitTime, String ip, Long executionTime, String method, String browser, String operatingSystem) {
         this.id = id;
         this.visitTime = visitTime;
         this.ip = ip;
         this.executionTime = executionTime;
         this.method = method;
+        this.browser = browser;
+        this.operatingSystem = operatingSystem;
     }
 }

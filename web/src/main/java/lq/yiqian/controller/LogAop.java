@@ -1,5 +1,6 @@
 package lq.yiqian.controller;
 
+import eu.bitwalker.useragentutils.UserAgent;
 import lq.yiqian.domain.SysLog;
 import lq.yiqian.service.ISysLogService;
 import lq.yiqian.utils.IpUtils;
@@ -64,9 +65,15 @@ public class LogAop {
             long time = new Date().getTime() - visitTime.getTime();
             //获取访问的ip地址
             String ip = IpUtils.getIp(request);
+            // 获取访问者的浏览器
+            UserAgent userAgent = UserAgent.parseUserAgentString(request.getHeader("User-Agent"));
+            String browser = userAgent.getBrowser().toString();
+            // 获取访问者的操作系统
+            String operatingSystem = userAgent.getOperatingSystem().toString();
             //将这些信息封装到SysLog里
             SysLog sysLog = new SysLog(null, visitTime, ip, time,
-                    "[类名]:" + aClass.getName() + "[方法名]:" + joinPoint.getSignature().getName());
+                    "[类名]:" + aClass.getName() + "[方法名]:" + joinPoint.getSignature().getName(),
+                    browser, operatingSystem);
             //调用service
             sysLogService.save(sysLog);
         }

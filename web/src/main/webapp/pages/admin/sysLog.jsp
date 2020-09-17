@@ -23,7 +23,7 @@
 <body>
 <jsp:include page="header.jsp"/>
 
-<div id="div1" class="col-md-10">
+<div id="div1" class="col-md-11">
     <%--搜索--%>
     <div id="div2">
         <form class="form-inline" action="${pageContext.request.contextPath}/sysLog/findAll">
@@ -45,8 +45,9 @@
                 <th>id</th>
                 <th>ip</th>
                 <th>访问时间</th>
-                <th>访问时长</th>
+                <th>时长</th>
                 <th>访问的方法</th>
+                <th>客户端</th>
             </tr>
             </thead>
             <tbody>
@@ -57,6 +58,7 @@
                     <td><fmt:formatDate value="${sysLog.visitTime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
                     <td>${sysLog.executionTime}</td>
                     <td>${sysLog.method}</td>
+                    <td>${sysLog.operatingSystem}:${sysLog.browser}</td>
                 </tr>
             </c:forEach>
             </tbody>

@@ -35,7 +35,7 @@ public class SysLogService implements ISysLogService {
     }
 
     /**
-     * 根据方法名查询
+     * 根据uri查询
      *
      * @param condition
      * @param page
@@ -43,7 +43,7 @@ public class SysLogService implements ISysLogService {
      * @return
      */
     @Override
-    public List<SysLog> findByMethod(String condition, Integer page, Integer size) {
+    public List<SysLog> findByUri(String condition, Integer page, Integer size) {
         PageHelper.startPage(page, size);
         return sysLogDao.findByMethod("%" + condition + "%");
     }

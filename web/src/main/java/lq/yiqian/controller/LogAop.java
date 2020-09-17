@@ -10,6 +10,7 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.ServletRequestUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
@@ -70,10 +71,10 @@ public class LogAop {
             String browser = userAgent.getBrowser().toString();
             // 获取访问者的操作系统
             String operatingSystem = userAgent.getOperatingSystem().toString();
+            String uri = request.getRequestURI();
             //将这些信息封装到SysLog里
             SysLog sysLog = new SysLog(null, visitTime, ip, time,
-                    "[类名]:" + aClass.getName() + "[方法名]:" + joinPoint.getSignature().getName(),
-                    browser, operatingSystem);
+                    uri, browser, operatingSystem);
             //调用service
             sysLogService.save(sysLog);
         }

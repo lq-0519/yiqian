@@ -12,7 +12,7 @@ public class SysLog {
     private Date visitTime;// 访问时间
     private String ip;// 访问者的ip
     private Long executionTime;// 访问时长
-    private String method;// 访问的方法
+    private String uri;// 访问的URI
     private String browser;// 访问者的浏览器
     private String operatingSystem;// 访问者的操作系统
 
@@ -67,20 +67,22 @@ public class SysLog {
         this.executionTime = executionTime;
     }
 
-    public String getMethod() {
-        return method;
+
+    public String getUri() {
+        return uri;
     }
 
-    public void setMethod(String method) {
-        this.method = method;
+    public void setUri(String uri) {
+        this.uri = uri;
     }
 
-    public SysLog(Integer id, Date visitTime, String ip, Long executionTime, String method, String browser, String operatingSystem) {
+    public SysLog(Integer id, Date visitTime, String ip, Long executionTime, String uri, String browser, String operatingSystem) {
+
         this.id = id;
         this.visitTime = visitTime;
         this.ip = ip;
         this.executionTime = executionTime;
-        this.method = method;
+        this.uri = uri;
         this.browser = browser;
         this.operatingSystem = operatingSystem;
     }

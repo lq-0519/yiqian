@@ -12,5 +12,5 @@ public interface ISysLogService {
     void save(SysLog sysLog);
 
 
-    List<SysLog> findByMethod(String condition, Integer page, Integer size);
+    List<SysLog> findByUri(String condition, Integer page, Integer size);
 }

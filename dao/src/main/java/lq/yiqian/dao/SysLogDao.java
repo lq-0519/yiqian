@@ -20,17 +20,17 @@ public interface SysLogDao {
      *
      * @param sysLog
      */
-    @Insert("insert into sysLog(visitTime, ip, executionTime, method, browser, operatingSystem )" +
-            " values(#{visitTime}, #{ip},  #{executionTime}, #{method}, #{browser}, #{operatingSystem})")
+    @Insert("insert into sysLog(visitTime, ip, executionTime, uri, browser, operatingSystem )" +
+            " values(#{visitTime}, #{ip},  #{executionTime}, #{uri}, #{browser}, #{operatingSystem})")
     void save(SysLog sysLog);
 
     /**
-     * 根据方法名查询
+     * 根据uri查询
      *
      * @param s
      * @return
      */
-    @Select("select id, visitTime, ip, method, executionTime, browser, operatingSystem from sysLog " +
-            "where  method like #{s} order by visitTime desc ")
+    @Select("select id, visitTime, ip, uri, executionTime, browser, operatingSystem from sysLog " +
+            "where  uri like #{s} order by visitTime desc ")
     List<SysLog> findByMethod(String s);
 }

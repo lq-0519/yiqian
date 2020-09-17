@@ -46,7 +46,7 @@
                 <th>ip</th>
                 <th>访问时间</th>
                 <th>时长</th>
-                <th>访问的方法</th>
+                <th>URI</th>
                 <th>客户端</th>
             </tr>
             </thead>
@@ -57,7 +57,7 @@
                     <td><a href="https://www.baidu.com/s?ie=UTF-8&wd=${sysLog.ip}">${sysLog.ip}</a></td>
                     <td><fmt:formatDate value="${sysLog.visitTime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
                     <td>${sysLog.executionTime}</td>
-                    <td>${sysLog.method}</td>
+                    <td>${sysLog.uri}</td>
                     <td>${sysLog.operatingSystem}:${sysLog.browser}</td>
                 </tr>
             </c:forEach>

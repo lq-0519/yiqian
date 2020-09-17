@@ -38,7 +38,7 @@ public class SysLogController {
     public ModelAndView findAll(@RequestParam(name = "page", defaultValue = "1") Integer page,
                                 @RequestParam(name = "condition", defaultValue = "") String condition) {
         ModelAndView mv = new ModelAndView();
-        List<SysLog> sysLogs = sysLogService.findByMethod(condition, page, 30);
+        List<SysLog> sysLogs = sysLogService.findByUri(condition, page, 30);
         PageInfo pageInfo = new PageInfo(sysLogs);
         mv.addObject("pageInfo", pageInfo);
         mv.addObject("condition", condition);

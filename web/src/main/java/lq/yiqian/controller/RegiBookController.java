@@ -168,6 +168,7 @@ public class RegiBookController {
         String result = "";// 找书结果
         String emailResult = "登记书名: " + bookName + ",\n登记时间: " + regiDate + ",\n找书结果: ";// 要用邮箱发送的内容
         if ("0".equals(regiBookResult)) {
+            bookListService.saveBookNameToRedis(bookName);// 将新插入的书名添加到Redis缓存中
             // 求出path
             String path = "小书屋/06-后续更新/" + yearAndMonth + "/" + regiDate;
             // regiBookResult=0 代表找到了

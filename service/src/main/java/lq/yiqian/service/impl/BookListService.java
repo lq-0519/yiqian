@@ -65,6 +65,8 @@ public class BookListService implements IBookListService {
     @Override
     public void updateRedis() {
         Jedis jedis = JedisPoolUtils.getJedis();
+        // 从Redis中获取最近插入的书名
+        String appendBookName = jedis.get("appendBookName");
         // 获取Redis中所有的key, 使用模式: '*---*'
         ScanParams scanParams = new ScanParams();
         scanParams.count(500);
@@ -75,13 +77,37 @@ public class BookListService implements IBookListService {
         for (String key : keys) {
             // 解析key为bookName+page
             String[] split = key.split("---");
-            // 查询数据库
-            List<Book> books = findByBookName(split[0], Integer.parseInt(split[1]), 20);
-            // 封装为pageInfo
-            PageInfo pageInfo = new PageInfo(books);
-            // 解析为JSON, 放进Redis中
-            jedis.set(key, JSON.toJSONString(pageInfo));
+            String bookName = split[0];
+            String page = split[1];
+            // 判断最近插入的书名是否包含这个key
+            if (appendBookName != null && appendBookName.contains(bookName)) {
+                // 包含, 更新这个键值对
+                // 查询数据库
+                List<Book> books = findByBookName(bookName, Integer.parseInt(page), 20);
+                // 封装为pageInfo
+                PageInfo pageInfo = new PageInfo(books);
+                // 解析为JSON, 放进Redis中
+                jedis.set(key, JSON.toJSONString(pageInfo));
+            }
         }
+        jedis.close();
+    }
+
+    /**
+     * 将新插入的书名添加到Redis中
+     *
+     * @param bookName
+     */
+    @Override
+    public void saveBookNameToRedis(String bookName) {
+        Jedis jedis = JedisPoolUtils.getJedis();
+        // 先从Redis中查询出来
+        String value = jedis.get("appendBookName");
+        // 将书名拼接到后面
+        value += bookName + "-";
+        // 再将键值对重新设置回Redis
+        jedis.set("appendBookName", value);
+        jedis.expire("appendBookName", 3600 * 8);// 设置8个小时的存活时间
         jedis.close();
     }
 }

@@ -77,11 +77,11 @@ public class BookListController {
             pageInfo = new PageInfo(books);
             value = JSON.toJSONString(pageInfo);
             jedis.set(key, value);
-            System.out.println("Redis没命中");
+//            System.out.println("Redis没命中");
         } else {
             // 查到了, 序列化数据, 返回
             pageInfo = JSON.parseObject(value, PageInfo.class);
-            System.out.println("Redis命中");
+//            System.out.println("Redis命中");
         }
         jedis.close();
         //获取查询到的结果数
@@ -120,4 +120,14 @@ public class BookListController {
         return modelAndView;
     }
 
+    /**
+     * 更新Redis缓存
+     *
+     * @return
+     */
+    @RequestMapping("/updateRedis")
+    public String updateRedis() {
+        bookListService.updateRedis();
+        return "redirect:/regiBook/findByUntreated";
+    }
 }

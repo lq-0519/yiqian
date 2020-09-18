@@ -15,4 +15,5 @@ public interface IBookListService {
 
     void save(String bookName, String path);
 
+    void updateRedis();
 }

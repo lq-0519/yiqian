@@ -48,7 +48,6 @@
                 <ul class="nav navbar-nav">
                     <li><a href="${pageContext.request.contextPath}/pages/regiBook.jsp">缺书登记</a></li>
                     <li><a href="${pageContext.request.contextPath}/regiBook/findByIsFund">找书结果</a></li>
-                    <li><a href="${pageContext.request.contextPath}/searchHistory/showTopSearch">书库热搜</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                            aria-expanded="false">常用教程 <span class="caret"></span></a>
@@ -73,7 +72,17 @@
                 <p class="navbar-text">已产生${searchTotal}次搜索</p>
                 <%--管理员登录--%>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="${pageContext.request.contextPath}/user/isLogin">管理员</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                           aria-expanded="false">更多 <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="${pageContext.request.contextPath}/searchHistory/showTopSearch">书库热搜</a></li>
+                            <li><a target="_blank" href="https://gitee.com/yi-qian/yiqian/commits/master">最近更新</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">支持群主</a></li>
+                            <li><a href="${pageContext.request.contextPath}/user/isLogin">管理员</a></li>
+                        </ul>
+                    </li>
                 </ul>
                 <%--管理员登录 /--%>
             </div><!-- /.navbar-collapse -->

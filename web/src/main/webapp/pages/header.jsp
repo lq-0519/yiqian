@@ -5,7 +5,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <script>
     /**
-     * 检查查询的书名是不是空, 空就返回false 1
+     * 检查查询的书名是不是空, 空就返回false
      * @returns {boolean}
      */
     function checkSearchCondition() {

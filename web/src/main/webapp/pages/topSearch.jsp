@@ -33,7 +33,7 @@
             <table class="table table-hover">
                 <thead>
                 <tr>
-                    <th>书名</th>
+                    <th>关键字</th>
                     <th>搜索次数</th>
                 </tr>
                 </thead>

@@ -75,11 +75,25 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                            aria-expanded="false">更多 <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="${pageContext.request.contextPath}/searchHistory/showTopSearch">书库热搜</a></li>
-                            <li><a target="_blank" href="https://gitee.com/yi-qian/yiqian/commits/master">最近更新</a></li>
+                            <li><a href="${pageContext.request.contextPath}/searchHistory/showTopSearch">
+                                <span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span>
+                                书库热搜
+                            </a></li>
+                            <li><a target="_blank" href="https://gitee.com/yi-qian/yiqian/commits/master">
+                                <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+                                最近更新
+                            </a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a data-toggle="modal" data-target=".bs-example-modal-sm">支持群主</a></li>
-                            <li><a href="${pageContext.request.contextPath}/user/isLogin">管理员</a></li>
+                            <li><a data-toggle="modal" data-target=".bs-example-modal-sm">
+                                <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+                                支持群主
+                            </a></li>
+                            <li>
+                                <a href="${pageContext.request.contextPath}/user/isLogin">
+                                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                                    管理员
+                                </a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
@@ -100,7 +114,8 @@
                 <h4 class="modal-title" id="myModalLabel">感谢支持！</h4>
             </div>
             <img class="img-responsive " src="../img/sponsor.JPG">
-            <p style="width: 93%; padding-left: 5%; padding-top: 1%;">如果你使用网站查到了你想看的书，或者通过缺书登记找到了你想看的书，那么欢迎打赏群主，有你的支持定能更进一步！</p>
+            <p style="width: 93%; padding-left: 5%; padding-top: 1%;">
+                如果你使用网站查到了你想看的书，或者通过缺书登记找到了你想看的书，那么欢迎打赏群主，有你的支持定能更进一步！</p>
         </div>
     </div>
 </div>

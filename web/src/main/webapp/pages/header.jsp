@@ -28,7 +28,6 @@
 
 </script>
 <div class="">
-
     <nav class="navbar navbar-default container-fluid">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -79,7 +78,7 @@
                             <li><a href="${pageContext.request.contextPath}/searchHistory/showTopSearch">书库热搜</a></li>
                             <li><a target="_blank" href="https://gitee.com/yi-qian/yiqian/commits/master">最近更新</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="#">支持群主</a></li>
+                            <li><a data-toggle="modal" data-target=".bs-example-modal-sm">支持群主</a></li>
                             <li><a href="${pageContext.request.contextPath}/user/isLogin">管理员</a></li>
                         </ul>
                     </li>
@@ -88,5 +87,20 @@
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
+</div>
 
+<!-- Small modal -->
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">感谢支持！</h4>
+            </div>
+            <img class="img-responsive " src="../img/sponsor.JPG">
+            <p style="width: 93%; padding-left: 5%; padding-top: 1%;">如果你使用网站查到了你想看的书，或者通过缺书登记找到了你想看的书，那么欢迎打赏群主，有你的支持定能更进一步！</p>
+        </div>
+    </div>
 </div>

@@ -61,7 +61,7 @@
 
         ${invitationCodeMsg}<%--显示邀请码添加成功之后的信息--%>
         ${msgSearch}<%--显示你搜索的内容--%>
-        共计<strong>${pageInfo.total}</strong>条<br>
+        &nbsp 共计<strong>${pageInfo.total}</strong>条<br>
         <%--遍历表数据--%>
         <div id="div3" class="col-md-9 table-responsive">
             <table class="table table-hover">

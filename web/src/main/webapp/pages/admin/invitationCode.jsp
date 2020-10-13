@@ -48,7 +48,7 @@
                 <div class="form-group">
                     <label class="sr-only" for="exampleInputEmail3"></label>
                     <input type="text" name="condition" class="form-control" id="exampleInputEmail3"
-                           placeholder="邀请码或用户名">
+                           placeholder="邀请码 用户名 userId">
                 </div>
                 <button type="submit" class="btn btn-default">搜索</button>
                 <span style="padding-left: 3%">

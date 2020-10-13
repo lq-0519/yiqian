@@ -28,11 +28,13 @@ public interface InvitationCodeDao {
     List<InvitationCode> findAll();
 
     /**
+     * 根据条件查询
+     *
      * @param condition
      * @return
      */
     @Select("select invitationCode, username, userId, accountType, createDate, sum, last  " +
-            " from invitationCodeList where invitationCode like #{condition} or username like #{condition} " +
+            " from invitationCodeList where invitationCode like #{condition} or username like #{condition}  or userId like #{condition} " +
             "order by createDate desc")
     List<InvitationCode> findByCondition(String condition);
 

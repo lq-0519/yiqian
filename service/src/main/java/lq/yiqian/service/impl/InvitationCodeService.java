@@ -53,7 +53,7 @@ public class InvitationCodeService implements IInvitationCodeService {
     }
 
     /**
-     * 根据邀请码或者用户名查询
+     * 根据邀请码或者用户名或者userId查询
      * <p>
      * 模糊查询
      *

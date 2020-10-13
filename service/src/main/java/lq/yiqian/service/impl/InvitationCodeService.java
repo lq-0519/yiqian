@@ -86,11 +86,11 @@ public class InvitationCodeService implements IInvitationCodeService {
     @Override
     public String createInvitationCode() {
         // 产生邀请码
-        String invitationCode = getRandomString(5);
+        String invitationCode = getRandomString(4);
         // 判断邀请码是否已经存在
         while (invitationCodeDao.findById(invitationCode) != null) {
             // 存在继续产生
-            invitationCode = getRandomString(5);
+            invitationCode = getRandomString(4);
         }
         // 不存在代表这个邀请码可用, 直接返回
         return invitationCode;

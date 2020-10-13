@@ -56,6 +56,11 @@
                                id="exampleInputPassword12">
                     </div>
                     <div class="form-group">
+                        <label for="exampleInputPassword17">userId</label>
+                        <input type="text" name="userId" class="form-control" value="${invitationCode.username}"
+                               id="exampleInputPassword17">
+                    </div>
+                    <div class="form-group">
                         <label for="exampleInputPassword13">账户类型</label>
                         <input type="text" name="accountType" class="form-control" value="${invitationCode.accountType}"
                                id="exampleInputPassword13">

@@ -41,19 +41,36 @@
             }
         }
 
+        //检查userId是否为空
+        function checkUserId() {
+            var userId = $("#userId").val();
+            if (userId.length == 0) {
+                $("#div6").addClass("has-error")
+                $("#span2").text("userId不能为空!");
+                return false;
+            } else {
+                $("#div6").removeClass("has-error")
+                $("#span2").text("");
+                return true;
+            }
+        }
+
 
         $(function () {
             /**
              * 添加邀请码的表单检验
              */
             $("#form1").submit(function () {
-                return checkUsername();
+                return checkUsername() && checkUserId();
             })
             /**
              * 绑定离焦事件
              */
             $("#username").blur(function () {
                 checkUsername()
+            })
+            $("#userId").blur(function () {
+                checkUserId()
             })
         })
     </script>
@@ -68,6 +85,11 @@
                 <label for="username">用户名</label>
                 <input name="username" type="text" class="form-control" id="username">
                 <span id="span1" class="help-block"></span>
+            </div>
+            <div id="div6" class="form-group">
+                <label for="userId">userId</label>
+                <input name="userId" type="text" class="form-control" id="userId">
+                <span id="span2" class="help-block"></span>
             </div>
             <strong>账户类型</strong> <br>
             <%--账户类型--%>

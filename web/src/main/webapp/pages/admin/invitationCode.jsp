@@ -63,12 +63,13 @@
         ${msgSearch}<%--显示你搜索的内容--%>
         共计<strong>${pageInfo.total}</strong>条<br>
         <%--遍历表数据--%>
-        <div id="div3" class="col-md-7 table-responsive">
+        <div id="div3" class="col-md-9 table-responsive">
             <table class="table table-hover">
                 <thead>
                 <tr>
                     <th>邀请码</th>
                     <th>用户名</th>
+                    <th>userId</th>
                     <th>添加时间</th>
                     <th>登记总数</th>
                     <th>今日剩余</th>
@@ -80,6 +81,7 @@
                 <c:forEach items="${pageInfo.list}" var="invitationCode">
                     <tr>
                         <td>${invitationCode.invitationCode}</td>
+                        <td>${invitationCode.username}</td>
                         <td>${invitationCode.username}</td>
                         <td><fmt:formatDate value="${invitationCode.createDate}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
                         <td>${invitationCode.sum}</td>

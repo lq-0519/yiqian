@@ -57,7 +57,7 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword17">userId</label>
-                        <input type="text" name="userId" class="form-control" value="${invitationCode.username}"
+                        <input type="text" name="userId" class="form-control" value="${invitationCode.userId}"
                                id="exampleInputPassword17">
                     </div>
                     <div class="form-group">

@@ -77,18 +77,20 @@ public class InvitationCodeController {
      * 添加邀请码之前要先看看这个邀请码是否已经存在
      *
      * @param username
+     * @param userId
      * @param accountType
      * @param session
      * @return
      */
     @RequestMapping("/addInvitationCode")
     public String addInvitationCode(@RequestParam(name = "username") String username,
+                                    @RequestParam(name = "userId") String userId,
                                     @RequestParam(name = "accountType", defaultValue = "3") Integer accountType,
                                     HttpSession session) {
         // 产生邀请码
         String invitationCode = invitationCodeService.createInvitationCode();
         // 添加邀请码
-        invitationCodeService.save(invitationCode, username, accountType);
+        invitationCodeService.save(invitationCode, username, userId, accountType);
         // 将邀请码放进session里
         session.setAttribute("invitationCodeMsg", "邀请码为: " + invitationCode + " , 请牢记, 以后都是使用这个邀请码进行缺书登记! <br><br>");
         return "redirect:findAll";

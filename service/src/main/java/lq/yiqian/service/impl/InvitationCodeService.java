@@ -104,7 +104,7 @@ public class InvitationCodeService implements IInvitationCodeService {
      * @param accountType
      */
     @Override
-    public void save(String invitationCode, String username, Integer accountType) {
+    public void save(String invitationCode, String username, String userId, Integer accountType) {
         String accountTypeStr = "";
         if (accountType == 0) {
             accountTypeStr = "QQ";
@@ -118,6 +118,7 @@ public class InvitationCodeService implements IInvitationCodeService {
         InvitationCode code = new InvitationCode();
         code.setInvitationCode(invitationCode);
         code.setUsername(username);
+        code.setUserId(userId);
         code.setAccountType(accountTypeStr);
         code.setSum(0);
         code.setCreateDate(new Date());

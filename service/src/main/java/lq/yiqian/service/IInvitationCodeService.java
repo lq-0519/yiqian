@@ -21,7 +21,7 @@ public interface IInvitationCodeService {
 
     String createInvitationCode();
 
-    void save(String invitationCode, String username, Integer accountType);
+    void save(String invitationCode, String username, String userId, Integer accountType);
 
     void updateInvitationCodeDetials(InvitationCode invitationCode);
 }

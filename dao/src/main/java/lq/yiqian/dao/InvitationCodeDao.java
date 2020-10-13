@@ -69,8 +69,8 @@ public interface InvitationCodeDao {
      *
      * @param code
      */
-    @Insert("insert into invitationCodeList(invitationCode, username, accountType, createDate, sum, last) " +
-            "values(#{invitationCode}, #{username}, #{accountType}, #{createDate}, #{sum}, #{last})")
+    @Insert("insert into invitationCodeList(invitationCode, username, userId, accountType, createDate, sum, last) " +
+            "values(#{invitationCode}, #{username}, #{userId}, #{accountType}, #{createDate}, #{sum}, #{last})")
     void save(InvitationCode code);
 
     /**

@@ -13,6 +13,7 @@ import java.util.Date;
 public class InvitationCode {
     private String invitationCode;//邀请码, 也作为主键
     private String username;//用户名, 管理员自己填写的
+    private String userId;//唯一标识, 可以使用这个userId来找到这个用户
     private String accountType;//用户名的账户类型, 可以是qq wx tb
     private Date createDate;//邀请码的创建时间
     private Integer sum;//当前邀请码进行缺书登记的总次数
@@ -23,11 +24,20 @@ public class InvitationCode {
         return "InvitationCode{" +
                 "invitationCode='" + invitationCode + '\'' +
                 ", username='" + username + '\'' +
+                ", userId='" + userId + '\'' +
                 ", accountType='" + accountType + '\'' +
                 ", createDate=" + createDate +
                 ", sum=" + sum +
                 ", last=" + last +
                 '}';
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public Integer getLast() {

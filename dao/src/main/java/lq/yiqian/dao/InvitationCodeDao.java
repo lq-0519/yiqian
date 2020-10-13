@@ -22,7 +22,7 @@ public interface InvitationCodeDao {
      *
      * @return
      */
-    @Select("select invitationCode, username, accountType, createDate, sum, last  " +
+    @Select("select invitationCode, username, userId, accountType, createDate, sum, last  " +
             " from invitationCodeList  " +
             "order by createDate desc")
     List<InvitationCode> findAll();
@@ -31,7 +31,7 @@ public interface InvitationCodeDao {
      * @param condition
      * @return
      */
-    @Select("select invitationCode, username, accountType, createDate, sum, last  " +
+    @Select("select invitationCode, username, userId, accountType, createDate, sum, last  " +
             " from invitationCodeList where invitationCode like #{condition} or username like #{condition} " +
             "order by createDate desc")
     List<InvitationCode> findByCondition(String condition);
@@ -42,7 +42,7 @@ public interface InvitationCodeDao {
      * @param invitationCodeId
      * @return
      */
-    @Select("select invitationCode, username, accountType, createDate, sum, last from invitationCodeList where invitationCode = #{invitationCodeId}")
+    @Select("select invitationCode, username, userId, accountType, createDate, sum, last from invitationCodeList where invitationCode = #{invitationCodeId}")
     InvitationCode findById(String invitationCodeId);
 
     /**
@@ -80,7 +80,7 @@ public interface InvitationCodeDao {
      *
      * @param invitationCode
      */
-    @Update("update invitationCodeList set username=#{username}, accountType=#{accountType}, sum=#{sum}, last=#{last}" +
+    @Update("update invitationCodeList set username=#{username}, userId=#{userId}, accountType=#{accountType}, sum=#{sum}, last=#{last}" +
             " where invitationCode = #{invitationCode}")
     void updateById_username_accountType_sum_last(InvitationCode invitationCode);
 }

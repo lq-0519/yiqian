@@ -67,28 +67,33 @@ public class BookListService implements IBookListService {
         Jedis jedis = JedisPoolUtils.getJedis();
         // 从Redis中获取最近插入的书名
         String appendBookName = jedis.get("appendBookName");
-        // 获取Redis中所有的key, 使用模式: '*---*'
-        ScanParams scanParams = new ScanParams();
-        scanParams.count(500);
-        scanParams.match("*---*");
-        ScanResult<String> scanResult = jedis.scan("0", scanParams);
-        // 遍历所有的key
-        List<String> keys = scanResult.getResult();
-        for (String key : keys) {
-            // 解析key为bookName+page
-            String[] split = key.split("---");
-            String bookName = split[0];
-            String page = split[1];
-            // 判断最近插入的书名是否包含这个key
-            if (appendBookName != null && appendBookName.contains(bookName)) {
-                // 包含, 更新这个键值对
-                // 查询数据库
-                List<Book> books = findByBookName(bookName, Integer.parseInt(page), 20);
-                // 封装为pageInfo
-                PageInfo pageInfo = new PageInfo(books);
-                // 解析为JSON, 放进Redis中
-                jedis.set(key, JSON.toJSONString(pageInfo));
+        // 只有最近有新添加的书才进行更新Redis的操作
+        if (appendBookName != null && appendBookName.length() != 0 && !("null".equals(appendBookName))) {
+            // 获取Redis中所有的key, 使用模式: '*---*'
+            ScanParams scanParams = new ScanParams();
+            scanParams.count(500);
+            scanParams.match("*---*");
+            ScanResult<String> scanResult = jedis.scan("0", scanParams);
+            // 遍历所有的key
+            List<String> keys = scanResult.getResult();
+            for (String key : keys) {
+                // 解析key为bookName+page
+                String[] split = key.split("---");
+                String bookName = split[0];
+                String page = split[1];
+                // 判断最近插入的书名是否包含这个key
+                if (appendBookName != null && appendBookName.contains(bookName)) {
+                    // 包含, 更新这个键值对
+                    // 查询数据库
+                    List<Book> books = findByBookName(bookName, Integer.parseInt(page), 20);
+                    // 封装为pageInfo
+                    PageInfo pageInfo = new PageInfo(books);
+                    // 解析为JSON, 放进Redis中
+                    jedis.set(key, JSON.toJSONString(pageInfo));
+                }
             }
+            // 删除最近删除的书名字符串
+            jedis.del("appendBookName");
         }
         jedis.close();
     }

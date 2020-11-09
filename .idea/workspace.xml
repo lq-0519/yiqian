@@ -112,8 +112,8 @@
       <file leaf-file-name="InitApplicationListener.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/src/main/java/lq/yiqian/listener/InitApplicationListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="21" column="15" selection-start-line="21" selection-start-column="15" selection-end-line="21" selection-end-column="15" />
+            <state relative-caret-position="391">
+              <caret line="32" column="18" lean-forward="true" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -168,7 +168,7 @@
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
               <first_editor relative-caret-position="119">
-                <caret line="7" column="15" lean-forward="true" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
+                <caret line="7" column="15" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
               </first_editor>
               <second_editor />
             </state>
@@ -208,7 +208,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/web/src/main/webapp/pages/regiBook.jsp" />
         <option value="$PROJECT_DIR$/web/src/main/webapp/pages/admin/header.jsp" />
         <option value="$PROJECT_DIR$/web/src/main/webapp/pages/searchResult.jsp" />
         <option value="$PROJECT_DIR$/web/src/main/webapp/pages/admin/regiBookHasFund.jsp" />
@@ -259,6 +258,7 @@
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/2c8cb382-dd94-4356-aa5f-99608fb90118/console.sql" />
         <option value="$PROJECT_DIR$/service/src/main/java/lq/yiqian/service/impl/BookListService.java" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/web/src/main/java/lq/yiqian/listener/InitApplicationListener.java" />
       </list>
     </option>
   </component>
@@ -322,6 +322,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -378,9 +381,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -580,6 +580,7 @@
       <workItem from="1603423066153" duration="1516000" />
       <workItem from="1604737412204" duration="3954000" />
       <workItem from="1604903909726" duration="434000" />
+      <workItem from="1604908974858" duration="367000" />
     </task>
     <task id="LOCAL-00001" summary="输出发邮件的具体信息">
       <created>1594103333727</created>
@@ -889,11 +890,25 @@
       <option name="project" value="LOCAL" />
       <updated>1604901781983</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="-">
+      <created>1604909045545</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1604909045545</updated>
+    </task>
+    <task id="LOCAL-00046" summary="-">
+      <created>1604909169009</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1604909169009</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="279267000" />
+    <option name="totallyTimeSpent" value="279634000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -920,7 +935,7 @@
       <window_info anchor="bottom" id="Run" order="2" weight="0.33167082" />
       <window_info anchor="bottom" id="Spring" order="8" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49785408" weight="0.319202" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49920255" visible="true" weight="0.19170243" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49920255" visible="true" weight="0.19456366" />
       <window_info id="Web" order="5" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info id="Favorites" order="6" sideWeight="0.50079745" side_tool="true" weight="0.18955651" />
@@ -1035,9 +1050,9 @@
     <MESSAGE value="-dao添加userId" />
     <MESSAGE value="-支持使用userId查询" />
     <MESSAGE value="-优化更新Redis的操作" />
-    <MESSAGE value="-" />
     <MESSAGE value="-更新README文件" />
-    <option name="LAST_COMMIT_MESSAGE" value="-更新README文件" />
+    <MESSAGE value="-" />
+    <option name="LAST_COMMIT_MESSAGE" value="-" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1382,7 +1397,7 @@
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="119">
-            <caret line="7" column="15" lean-forward="true" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
+            <caret line="7" column="15" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
           </first_editor>
           <second_editor />
         </state>
@@ -1390,8 +1405,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/src/main/java/lq/yiqian/listener/InitApplicationListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="21" column="15" selection-start-line="21" selection-start-column="15" selection-end-line="21" selection-end-column="15" />
+        <state relative-caret-position="391">
+          <caret line="32" column="18" lean-forward="true" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="19" />
         </state>
       </provider>
     </entry>

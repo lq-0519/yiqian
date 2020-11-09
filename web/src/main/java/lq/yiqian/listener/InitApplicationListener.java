@@ -20,7 +20,7 @@ import java.util.List;
  * 用于加载公告的webListener
  * <p>
  * 仅仅在启动时从数据库中加在公告, 并不会在服务器关闭时将session里面的数据存储到数据库,
- * 因为tomcat非正常关闭(不使用shutdown.bat关闭服务器)时contextDestroyed方法并不能正常执行 1 asdasdasd
+ * 因为tomcat非正常关闭(不使用shutdown.bat关闭服务器)时contextDestroyed方法并不能正常执行
  */
 @WebListener
 public class InitApplicationListener implements ServletContextListener {

@@ -6,7 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0457046d-95a5-4a12-b720-5118c11c3eb8" name="Default" comment="" />
+    <list default="true" id="0457046d-95a5-4a12-b720-5118c11c3eb8" name="Default" comment="-" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/dao/target/" />
@@ -95,11 +95,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/pom.xml">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
       <file leaf-file-name="RegiBookService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/service/src/main/java/lq/yiqian/service/impl/RegiBookService.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -109,11 +104,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="InitApplicationListener.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="InitApplicationListener.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/src/main/java/lq/yiqian/listener/InitApplicationListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="219">
-              <caret line="22" column="56" selection-start-line="22" selection-start-column="56" selection-end-line="22" selection-end-column="56" />
+            <state relative-caret-position="321">
+              <caret line="28" column="7" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" column="6" lean-forward="true" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -208,7 +212,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/web/src/main/webapp/pages/admin/header.jsp" />
         <option value="$PROJECT_DIR$/web/src/main/webapp/pages/searchResult.jsp" />
         <option value="$PROJECT_DIR$/web/src/main/webapp/pages/admin/regiBookHasFund.jsp" />
         <option value="$PROJECT_DIR$/web/src/main/webapp/index.jsp" />
@@ -258,6 +261,7 @@
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/2c8cb382-dd94-4356-aa5f-99608fb90118/console.sql" />
         <option value="$PROJECT_DIR$/service/src/main/java/lq/yiqian/service/impl/BookListService.java" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/web/src/main/java/lq/yiqian/listener/InitApplicationListener.java" />
       </list>
     </option>
@@ -331,6 +335,51 @@
             <path>
               <item name="yiqian" type="b2602c69:ProjectViewProjectNode" />
               <item name="yiqian" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="yiqian" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yiqian" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="yiqian" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yiqian" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="yiqian" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yiqian" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="yiqian" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yiqian" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="yiqian" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yiqian" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="yiqian" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="yiqian" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yiqian" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="yiqian" type="462c0819:PsiDirectoryNode" />
+              <item name="listener" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -535,7 +584,7 @@
       <workItem from="1603423066153" duration="1516000" />
       <workItem from="1604737412204" duration="3954000" />
       <workItem from="1604903909726" duration="434000" />
-      <workItem from="1604908974858" duration="553000" />
+      <workItem from="1604908974858" duration="984000" />
     </task>
     <task id="LOCAL-00001" summary="输出发邮件的具体信息">
       <created>1594103333727</created>
@@ -866,14 +915,22 @@
       <option name="project" value="LOCAL" />
       <updated>1604909634348</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="-">
+      <created>1604909849597</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1604909849597</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="279820000" />
+    <option name="totallyTimeSpent" value="280251000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50214595" side_tool="true" weight="0.319202" />
@@ -888,6 +945,7 @@
       <window_info id="UI Designer" order="3" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49642345" weight="0.37281796" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Messages" order="8" weight="0.32668328" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="4" />
       <window_info anchor="bottom" id="Java Enterprise" order="8" />
@@ -900,7 +958,6 @@
       <window_info id="Web" order="5" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info id="Favorites" order="6" sideWeight="0.50079745" side_tool="true" weight="0.18955651" />
-      <window_info anchor="bottom" id="Messages" order="8" weight="0.32668328" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Database Console" order="9" weight="0.3466334" />
@@ -1021,11 +1078,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/数据库/searchHistory.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-155" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/数据库/user.sql">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1366,8 +1418,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/src/main/java/lq/yiqian/listener/InitApplicationListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="22" column="56" selection-start-line="22" selection-start-column="56" selection-end-line="22" selection-end-column="56" />
+        <state relative-caret-position="321">
+          <caret line="28" column="7" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="6" lean-forward="true" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
         </state>
       </provider>
     </entry>

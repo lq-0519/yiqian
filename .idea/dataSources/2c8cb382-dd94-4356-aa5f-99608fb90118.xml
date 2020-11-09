@@ -919,6 +919,7 @@
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
     <table id="231" parent="8" name="bookList">
+      <Engine>MyISAM</Engine>
       <Collation>utf8_general_ci</Collation>
     </table>
     <table id="232" parent="8" name="invitationCodeList">
@@ -933,7 +934,9 @@
     <table id="235" parent="8" name="sysLog">
       <Collation>utf8_bin</Collation>
     </table>
-    <table id="236" parent="8" name="user"/>
+    <table id="236" parent="8" name="user">
+      <Collation>utf8_bin</Collation>
+    </table>
     <table id="237" parent="8" name="variable">
       <Collation>utf8_bin</Collation>
     </table>
@@ -943,7 +946,7 @@
       <Starts>&apos;2020-06-27 01:00:00&apos;</Starts>
       <Preserve>0</Preserve>
       <Status>enabled</Status>
-      <LastExecuted>2020-07-05.09:00:00</LastExecuted>
+      <LastExecuted>2020-10-13.09:00:00</LastExecuted>
     </scheduled-event>
     <column id="239" parent="231" name="id">
       <Position>1</Position>
@@ -1012,194 +1015,214 @@
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="249" parent="232" name="PRIMARY">
+    <column id="249" parent="232" name="userId">
+      <Position>7</Position>
+      <Comment>可以通过这个userId来找到这个用户</Comment>
+      <DataType>varchar(50)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="250" parent="232" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>invitationCode</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="250" parent="233" name="bookName">
+    <column id="251" parent="233" name="bookName">
       <Position>1</Position>
       <Comment>书名</Comment>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="251" parent="233" name="author">
+    <column id="252" parent="233" name="author">
       <Position>2</Position>
       <Comment>作者
 </Comment>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="252" parent="233" name="invitationCodeId">
+    <column id="253" parent="233" name="invitationCodeId">
       <Position>3</Position>
       <Comment>登记时使用的邀请码</Comment>
       <DataType>varchar(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="253" parent="233" name="remarks">
+    <column id="254" parent="233" name="remarks">
       <Position>4</Position>
       <Comment>备注</Comment>
       <DataType>varchar(600)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="254" parent="233" name="isFund">
+    <column id="255" parent="233" name="isFund">
       <Position>5</Position>
       <Comment>是否被处理,1代表处理了</Comment>
       <DataType>int(2)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="255" parent="233" name="result">
+    <column id="256" parent="233" name="result">
       <Position>6</Position>
       <Comment>找书结果</Comment>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="256" parent="233" name="id">
+    <column id="257" parent="233" name="id">
       <Position>7</Position>
       <DataType>int(10)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="257" parent="233" name="regiDate">
+    <column id="258" parent="233" name="regiDate">
       <Position>8</Position>
       <Comment>登记日期</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="258" parent="233" name="email">
+    <column id="259" parent="233" name="email">
       <Position>9</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="259" parent="233" name="regiBook_invitationCodeList_invitationCode_fk">
+    <index id="260" parent="233" name="regiBook_invitationCodeList_invitationCode_fk">
       <ColNames>invitationCodeId</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="260" parent="233" name="PRIMARY">
+    <key id="261" parent="233" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="261" parent="233" name="regiBook_invitationCodeList_invitationCode_fk">
+    <foreign-key id="262" parent="233" name="regiBook_invitationCodeList_invitationCode_fk">
       <ColNames>invitationCodeId</ColNames>
       <RefSchemaName>yiqianLibrary</RefSchemaName>
       <RefTableName>invitationCodeList</RefTableName>
       <RefColNames>invitationCode</RefColNames>
       <OnDelete>set-null</OnDelete>
     </foreign-key>
-    <column id="262" parent="234" name="ip">
+    <column id="263" parent="234" name="ip">
       <Position>1</Position>
       <Comment>记录搜索者的ip</Comment>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="263" parent="234" name="searchTime">
+    <column id="264" parent="234" name="searchTime">
       <Position>2</Position>
       <Comment>搜索时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
       <OnUpdate>CURRENT_TIMESTAMP</OnUpdate>
     </column>
-    <column id="264" parent="234" name="bookName">
+    <column id="265" parent="234" name="bookName">
       <Position>3</Position>
       <Comment>搜索的书名</Comment>
       <DataType>varchar(200)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="265" parent="234" name="result">
+    <column id="266" parent="234" name="result">
       <Position>4</Position>
       <Comment>搜索出来的结果</Comment>
       <DataType>int(10)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="266" parent="234" name="id">
+    <column id="267" parent="234" name="id">
       <Position>5</Position>
       <DataType>int(10)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="267" parent="234" name="PRIMARY">
+    <key id="268" parent="234" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="268" parent="235" name="id">
+    <column id="269" parent="235" name="id">
       <Position>1</Position>
       <DataType>int(10)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="269" parent="235" name="visitTime">
+    <column id="270" parent="235" name="visitTime">
       <Position>2</Position>
       <Comment>执行操作的时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="270" parent="235" name="ip">
+    <column id="271" parent="235" name="ip">
       <Position>3</Position>
       <Comment>ip地址</Comment>
       <DataType>varchar(40)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="271" parent="235" name="method">
+    <column id="272" parent="235" name="uri">
       <Position>4</Position>
-      <Comment>执行的方法</Comment>
-      <DataType>varchar(400)|0s</DataType>
+      <Comment>访问的uri</Comment>
+      <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="272" parent="235" name="executionTime">
+    <column id="273" parent="235" name="executionTime">
       <Position>5</Position>
       <Comment>访问时长</Comment>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="273" parent="235" name="PRIMARY">
+    <column id="274" parent="235" name="browser">
+      <Position>6</Position>
+      <Comment>浏览器</Comment>
+      <DataType>varchar(50)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="275" parent="235" name="operatingSystem">
+      <Position>7</Position>
+      <Comment>操作系统</Comment>
+      <DataType>varchar(100)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="276" parent="235" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="274" parent="236" name="id">
+    <column id="277" parent="236" name="id">
       <Position>1</Position>
       <DataType>int(10)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="275" parent="236" name="username">
+    <column id="278" parent="236" name="username">
       <Position>2</Position>
       <Comment>用户名</Comment>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
+      <Collation>latin1_swedish_ci</Collation>
     </column>
-    <column id="276" parent="236" name="password">
+    <column id="279" parent="236" name="password">
       <Position>3</Position>
       <Comment>密码</Comment>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
+      <Collation>latin1_swedish_ci</Collation>
     </column>
-    <key id="277" parent="236" name="PRIMARY">
+    <key id="280" parent="236" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="278" parent="237" name="id">
+    <column id="281" parent="237" name="id">
       <Position>1</Position>
       <DataType>int(10)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="279" parent="237" name="name">
+    <column id="282" parent="237" name="name">
       <Position>2</Position>
       <Comment>变量的名字</Comment>
       <DataType>varchar(100)|0s</DataType>
@@ -1207,14 +1230,14 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>latin1_swedish_ci</Collation>
     </column>
-    <column id="280" parent="237" name="value">
+    <column id="283" parent="237" name="value">
       <Position>3</Position>
       <Comment>变量的值</Comment>
       <DataType>varchar(800)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8_general_ci</Collation>
     </column>
-    <key id="281" parent="237" name="PRIMARY">
+    <key id="284" parent="237" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>

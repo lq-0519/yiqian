@@ -112,8 +112,8 @@
       <file leaf-file-name="InitApplicationListener.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/src/main/java/lq/yiqian/listener/InitApplicationListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="32" column="18" lean-forward="true" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="19" />
+            <state relative-caret-position="219">
+              <caret line="22" column="56" selection-start-line="22" selection-start-column="56" selection-end-line="22" selection-end-column="56" />
             </state>
           </provider>
         </entry>
@@ -332,51 +332,6 @@
               <item name="yiqian" type="b2602c69:ProjectViewProjectNode" />
               <item name="yiqian" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="yiqian" type="b2602c69:ProjectViewProjectNode" />
-              <item name="yiqian" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="yiqian" type="b2602c69:ProjectViewProjectNode" />
-              <item name="yiqian" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="yiqian" type="b2602c69:ProjectViewProjectNode" />
-              <item name="yiqian" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="yiqian" type="b2602c69:ProjectViewProjectNode" />
-              <item name="yiqian" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="yiqian" type="b2602c69:ProjectViewProjectNode" />
-              <item name="yiqian" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="yiqian" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="yiqian" type="b2602c69:ProjectViewProjectNode" />
-              <item name="yiqian" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="yiqian" type="462c0819:PsiDirectoryNode" />
-              <item name="listener" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -580,7 +535,7 @@
       <workItem from="1603423066153" duration="1516000" />
       <workItem from="1604737412204" duration="3954000" />
       <workItem from="1604903909726" duration="434000" />
-      <workItem from="1604908974858" duration="367000" />
+      <workItem from="1604908974858" duration="553000" />
     </task>
     <task id="LOCAL-00001" summary="输出发邮件的具体信息">
       <created>1594103333727</created>
@@ -904,15 +859,21 @@
       <option name="project" value="LOCAL" />
       <updated>1604909169009</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="-">
+      <created>1604909634348</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1604909634348</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="279634000" />
+    <option name="totallyTimeSpent" value="279820000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50214595" side_tool="true" weight="0.319202" />
@@ -1405,8 +1366,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/src/main/java/lq/yiqian/listener/InitApplicationListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="32" column="18" lean-forward="true" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="19" />
+        <state relative-caret-position="219">
+          <caret line="22" column="56" selection-start-line="22" selection-start-column="56" selection-end-line="22" selection-end-column="56" />
         </state>
       </provider>
     </entry>

@@ -84,7 +84,7 @@
                         <td>${invitationCode.username}</td>
                         <td>${invitationCode.accountType}</td>
                         <td>${invitationCode.userId}</td>
-                        <td><fmt:formatDate value="${invitationCode.createDate}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
+                        <td><fmt:formatDate value="${invitationCode.createDate}" pattern="yyyy-MM-dd"/></td>
                         <td>${invitationCode.sum}</td>
                         <td>${invitationCode.last}</td>
                         <td>

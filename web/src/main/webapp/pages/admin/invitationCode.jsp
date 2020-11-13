@@ -69,11 +69,11 @@
                 <tr>
                     <th>邀请码</th>
                     <th>用户名</th>
+                    <th>账户类型</th>
                     <th>userId</th>
                     <th>添加时间</th>
                     <th>登记总数</th>
                     <th>今日剩余</th>
-                    <th>账户类型</th>
                     <th>操作</th>
                 </tr>
                 </thead>
@@ -82,11 +82,11 @@
                     <tr>
                         <td>${invitationCode.invitationCode}</td>
                         <td>${invitationCode.username}</td>
+                        <td>${invitationCode.accountType}</td>
                         <td>${invitationCode.userId}</td>
                         <td><fmt:formatDate value="${invitationCode.createDate}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
                         <td>${invitationCode.sum}</td>
                         <td>${invitationCode.last}</td>
-                        <td>${invitationCode.accountType}</td>
                         <td>
                             <a onclick="del('${invitationCode.invitationCode}')"> 删除</a>
                             <a href="${pageContext.request.contextPath}/invitationCode/showInvitationCodeDetials?id=${invitationCode.invitationCode}">详情</a>

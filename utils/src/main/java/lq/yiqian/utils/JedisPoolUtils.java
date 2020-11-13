@@ -31,7 +31,7 @@ public class JedisPoolUtils {
         JedisPoolConfig jedisPoolConfig = new JedisPoolConfig();
         jedisPoolConfig.setMaxTotal(Integer.parseInt(pro.getProperty("maxTotal")));// 设置最大连接数
         jedisPoolConfig.setMaxIdle(Integer.parseInt(pro.getProperty("maxIdle")));// 设置连接池中常驻的连接数
-        jedisPool = new JedisPool(jedisPoolConfig, pro.getProperty("host"), Integer.parseInt(pro.getProperty("port")));
+        jedisPool = new JedisPool(jedisPoolConfig, pro.getProperty("host"), Integer.parseInt(pro.getProperty("port")), 2000, pro.getProperty("password"));
     }
 
     /**

@@ -62,7 +62,7 @@
                     </li>
                 </ul>
                 <form id="form2" class="navbar-form navbar-left"
-                      action="${pageContext.request.contextPath}/book/findByBookName" method="post">
+                      action="${pageContext.request.contextPath}/book/findByBookName" method="get">
                     <div class="form-group">
                         <input type="text" id="searchCondition" name="bookName" class="form-control" placeholder="输入书名">
                     </div>

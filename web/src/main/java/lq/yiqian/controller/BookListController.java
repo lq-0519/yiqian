@@ -72,8 +72,8 @@ public class BookListController {
         if (value == null || value.length() == 0) {
             // 没查到
             // 查询数据库, 序列化数据存入Redis, 返回数据
-            // 默认一页20条数据
-            List<Book> books = bookListService.findByBookName(bookName, page, 20);
+            // 默认一页13条数据
+            List<Book> books = bookListService.findByBookName(bookName, page, 13);
             pageInfo = new PageInfo(books);
             value = JSON.toJSONString(pageInfo);
             jedis.set(key, value);

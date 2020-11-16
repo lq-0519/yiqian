@@ -38,7 +38,7 @@
         }
     </style>
 </head>
-<body style="background-image:url('../img/watermark.png'); background-size: 40%">
+<body style="background-image:url('../img/watermark.png'); background-size: 50%">
 <jsp:include page="header.jsp"/>
 
 <div id="div4" class="container-fluid" >

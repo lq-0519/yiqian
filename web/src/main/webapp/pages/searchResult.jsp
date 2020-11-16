@@ -38,10 +38,10 @@
         }
     </style>
 </head>
-<body>
+<body style="background-image:url('../img/watermark.png'); background-size: 40%">
 <jsp:include page="header.jsp"/>
 
-<div id="div4" class="container-fluid">
+<div id="div4" class="container-fluid" >
     <div id="div2">
         你搜索的是:&nbsp <strong>${bookName}</strong><br>
         共搜到<strong>${pageInfo.total}</strong>个结果<br>

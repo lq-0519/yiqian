@@ -36,7 +36,7 @@
 
     </style>
 </head>
-<body>
+<body style="background-image:url('../img/watermark.png'); background-size: 40%">
 <jsp:include page="header.jsp"/>
 
 <div class="container-fluid">
@@ -44,7 +44,7 @@
         <div>
             <p class="lead col-lg-9" id="p1">${applicationScope.noticeRigiBookResult}</p>
         </div>
-        <div id="div2" class="table-responsive col-md-8 ">
+        <div id="div2" class="table-responsive col-md-8">
             <%--根据日期展示数据--%>
             <fmt:formatDate var="oldDay" value="${pageInfo.list[0].regiDate}" pattern="MM月dd日"/>
             <h2>${oldDay}</h2>

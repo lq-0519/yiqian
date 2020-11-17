@@ -15,7 +15,8 @@ public interface IBookListService {
 
     void save(String bookName, String path);
 
-    void updateRedis();
+    void updateRedis(String appendBookName);
 
+    @Deprecated
     void saveBookNameToRedis(String bookName);
 }

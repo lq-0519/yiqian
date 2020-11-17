@@ -115,9 +115,9 @@
             </table>
         </div>
     </div>
-    <div style="padding-bottom: 15px">
-        <a href="${pageContext.request.contextPath}/book/updateRedis" class="btn btn-default">更新Redis缓存</a>
-    </div>
+    <%--<div style="padding-bottom: 15px">--%>
+        <%--<a href="${pageContext.request.contextPath}/book/updateRedis" class="btn btn-default">更新Redis缓存</a>--%>
+    <%--</div>--%>
 </div>
 </body>
 </html>

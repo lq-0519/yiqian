@@ -61,13 +61,13 @@ public class BookListService implements IBookListService {
 
     /**
      * 更新Redis缓存
+     *
+     * @param appendBookName 新插入的书名
      */
     @Override
-    public void updateRedis() {
+    public void updateRedis(String appendBookName) {
         Jedis jedis = JedisPoolUtils.getJedis();
-        // 从Redis中获取最近插入的书名
-        String appendBookName = jedis.get("appendBookName");
-        // 只有最近有新添加的书才进行更新Redis的操作
+        // 参数合法性检验
         if (appendBookName != null && appendBookName.length() != 0 && !("null".equals(appendBookName))) {
             // 获取Redis中所有的key, 使用模式: '*---*'
             ScanParams scanParams = new ScanParams();
@@ -85,15 +85,13 @@ public class BookListService implements IBookListService {
                 if (appendBookName != null && appendBookName.contains(bookName)) {
                     // 包含, 更新这个键值对
                     // 查询数据库
-                    List<Book> books = findByBookName(bookName, Integer.parseInt(page), 20);
+                    List<Book> books = findByBookName(bookName, Integer.parseInt(page), 13);
                     // 封装为pageInfo
                     PageInfo pageInfo = new PageInfo(books);
                     // 解析为JSON, 放进Redis中
                     jedis.set(key, JSON.toJSONString(pageInfo));
                 }
             }
-            // 删除最近删除的书名字符串
-            jedis.del("appendBookName");
         }
         jedis.close();
     }
@@ -104,6 +102,7 @@ public class BookListService implements IBookListService {
      * @param bookName
      */
     @Override
+    @Deprecated
     public void saveBookNameToRedis(String bookName) {
         Jedis jedis = JedisPoolUtils.getJedis();
         // 先从Redis中查询出来

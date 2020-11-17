@@ -35,6 +35,24 @@
             padding-left: 1%;
         }
     </style>
+
+    <script type="text/javascript">
+        /**
+         * 复制内容到剪贴板
+         * @param Url2
+         */
+        function copyContact(Url2) {
+            var oInput = document.createElement('input');
+            oInput.value = Url2;
+            document.body.appendChild(oInput);
+            oInput.select(); // 选择对象
+            document.execCommand("Copy"); // 执行浏览器复制命令
+            oInput.className = 'oInput';
+            oInput.style.display = 'none';
+            alert('复制成功');
+        }
+    </script>
+
 </head>
 <body>
 <jsp:include page="header.jsp"/>
@@ -72,7 +90,8 @@
                         <td style="vertical-align:middle;"><a
                                 href="${pageContext.request.contextPath}/invitationCode/showInvitationCodeDetials?id=${regiBook.invitationCodeId}">${regiBook.invitationCode.username}</a>
                         </td>
-                        <td style="vertical-align:middle;">${regiBook.bookName}</td>
+                        <td style="vertical-align:middle;"
+                            onclick="copyContact(this.innerHTML)">${regiBook.bookName}</td>
                         <td style="vertical-align:middle;">${regiBook.author}</td>
                         <td style="vertical-align:middle;">${regiBook.remarks}</td>
                         <td style="vertical-align:middle;"><fmt:formatDate value="${regiBook.regiDate}"
@@ -116,7 +135,7 @@
         </div>
     </div>
     <%--<div style="padding-bottom: 15px">--%>
-        <%--<a href="${pageContext.request.contextPath}/book/updateRedis" class="btn btn-default">更新Redis缓存</a>--%>
+    <%--<a href="${pageContext.request.contextPath}/book/updateRedis" class="btn btn-default">更新Redis缓存</a>--%>
     <%--</div>--%>
 </div>
 </body>

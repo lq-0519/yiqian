@@ -52,7 +52,7 @@
         <table class="table table-hover">
             <thead>
             <tr>
-                <th>id</th>
+                <%--<th>id</th>--%>
                 <th>书名</th>
                 <th>路径</th>
             </tr>
@@ -60,7 +60,7 @@
             <tbody>
             <c:forEach items="${pageInfo.list}" var="book">
                 <tr>
-                    <td>${book.id}</td>
+                    <%--<td>${book.id}</td>--%>
                     <td>${book.bookName}</td>
                     <td>${book.path}</td>
                 </tr>

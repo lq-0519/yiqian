@@ -92,7 +92,7 @@ public class InvitationCodeController {
         // 添加邀请码
         invitationCodeService.save(invitationCode, username, userId, accountType);
         // 将邀请码放进session里
-        session.setAttribute("invitationCodeMsg", "邀请码为: " + invitationCode + " , 请牢记, 以后都是使用这个邀请码进行缺书登记! <br><br>");
+        session.setAttribute("invitationCodeMsg", "邀请码为: " + invitationCode + " , 请牢记, 以后都是使用这个邀请码进行缺书登记! <br>");
         return "redirect:findAll";
     }
 

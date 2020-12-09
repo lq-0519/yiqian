@@ -49,7 +49,7 @@
             document.execCommand("Copy"); // 执行浏览器复制命令
             oInput.className = 'oInput';
             oInput.style.display = 'none';
-            // alert('复制成功');
+            alert('复制成功');
         }
     </script>
 
@@ -92,7 +92,7 @@
                         </td>
                         <td style="vertical-align:middle;"
                             onclick="copyContact(this.innerHTML)">${regiBook.bookName}</td>
-                        <td style="vertical-align:middle;">${regiBook.author}</td>
+                        <td onclick="copyContact(this.innerHTML)" style="vertical-align:middle;">${regiBook.author}</td>
                         <td style="vertical-align:middle;">${regiBook.remarks}</td>
                         <td style="vertical-align:middle;"><fmt:formatDate value="${regiBook.regiDate}"
                                                                            pattern="MMdd"/></td>

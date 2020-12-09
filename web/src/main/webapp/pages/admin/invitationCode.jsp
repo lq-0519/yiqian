@@ -26,7 +26,7 @@
         }
     </style>
 
-    <script>
+    <script type="text/javascript">
         /**
          * 删除的确认操作
          * @param id
@@ -35,6 +35,21 @@
             if (confirm("确定要删除吗？")) {
                 location.href = "${pageContext.request.contextPath}/invitationCode/deleteById?id=" + id;
             }
+        }
+
+        /**
+         * 复制内容到剪贴板
+         * @param Url2
+         */
+        function copyContact(Url2) {
+            var oInput = document.createElement('input');
+            oInput.value = Url2;
+            document.body.appendChild(oInput);
+            oInput.select(); // 选择对象
+            document.execCommand("Copy"); // 执行浏览器复制命令
+            oInput.className = 'oInput';
+            oInput.style.display = 'none';
+            alert('复制成功');
         }
     </script>
 </head>
@@ -58,8 +73,7 @@
             </form>
         </div>
         <%--搜索 /--%>
-
-        ${invitationCodeMsg}<%--显示邀请码添加成功之后的信息--%>
+        <span onclick="copyContact(this.innerHTML)">${invitationCodeMsg}</span><%--显示邀请码添加成功之后的信息--%>
         ${msgSearch}<%--显示你搜索的内容--%>
         &nbsp 共计<strong>${pageInfo.total}</strong>条<br>
         <%--遍历表数据--%>

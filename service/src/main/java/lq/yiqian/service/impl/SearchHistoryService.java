@@ -23,32 +23,22 @@ public class SearchHistoryService implements ISearchHistoryService {
 
     /**
      * 查询今天的搜索记录数
-     *
-     * @return
      */
     @Override
     public int findTodayTotal() {
-        int todayTotal = searchHistoryDao.findTodayTotal();
-        return todayTotal;
+        return searchHistoryDao.findTodayTotal();
     }
 
     /**
      * 查询昨天的搜索记录数
-     *
-     * @return
      */
     @Override
     public int findYesterdayTotal() {
-        int yesterdayTotal = searchHistoryDao.findYesterdayTotal();
-        return yesterdayTotal;
+        return searchHistoryDao.findYesterdayTotal();
     }
 
     /**
      * 使用分页查询所有
-     *
-     * @param page
-     * @param size
-     * @return
      */
     @Override
     public List<SearchHistory> findAllByPage(Integer page, Integer size) {
@@ -58,8 +48,6 @@ public class SearchHistoryService implements ISearchHistoryService {
 
     /**
      * 产生新的搜索记录
-     *
-     * @param searchHistory
      */
     @Override
     public void save(SearchHistory searchHistory) {
@@ -68,15 +56,10 @@ public class SearchHistoryService implements ISearchHistoryService {
 
     /**
      * 查询书库热搜
-     *
-     * @param page
-     * @param size
-     * @return
      */
     @Override
     public List<TopSearch> findTopSearch(Integer page, Integer size) {
         PageHelper.startPage(page, size);
-        List<TopSearch> topSearch = searchHistoryDao.findTopSearch();
-        return topSearch;
+        return searchHistoryDao.findTopSearch();
     }
 }

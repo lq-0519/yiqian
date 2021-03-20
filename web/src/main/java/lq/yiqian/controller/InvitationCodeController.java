@@ -34,10 +34,6 @@ public class InvitationCodeController {
      * 展示邀请码
      * <p>
      * 可根据传过来的条件来查询, 条件为空就默认查询所有
-     *
-     * @param page
-     * @param condition
-     * @return
      */
     @RequestMapping("/findAll")
     public ModelAndView findAll(@RequestParam(name = "page", defaultValue = "1") Integer page,

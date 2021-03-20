@@ -33,9 +33,6 @@ public class InvitationCodeService implements IInvitationCodeService {
 
     /**
      * 根据邀请码查询
-     *
-     * @param invitationCodeId
-     * @return
      */
     @Override
     public InvitationCode findById(String invitationCodeId) {
@@ -44,8 +41,6 @@ public class InvitationCodeService implements IInvitationCodeService {
 
     /**
      * 更新总数和剩余次数
-     *
-     * @param invitationCodeId
      */
     @Override
     public void updateById_sum_last(String invitationCodeId) {
@@ -56,11 +51,6 @@ public class InvitationCodeService implements IInvitationCodeService {
      * 根据邀请码或者用户名或者userId查询
      * <p>
      * 模糊查询
-     *
-     * @param condition
-     * @param page
-     * @param size
-     * @return
      */
     @Override
     public List<InvitationCode> findByCondition(String condition, Integer page, int size) {
@@ -70,8 +60,6 @@ public class InvitationCodeService implements IInvitationCodeService {
 
     /**
      * 根据id删除
-     *
-     * @param id
      */
     @Override
     public void deleteById(String id) {
@@ -80,8 +68,6 @@ public class InvitationCodeService implements IInvitationCodeService {
 
     /**
      * 产生一个可用的邀请码
-     *
-     * @return
      */
     @Override
     public String createInvitationCode() {
@@ -98,10 +84,6 @@ public class InvitationCodeService implements IInvitationCodeService {
 
     /**
      * 存储邀请码
-     *
-     * @param invitationCode
-     * @param username
-     * @param accountType
      */
     @Override
     public void save(String invitationCode, String username, String userId, Integer accountType) {
@@ -130,8 +112,6 @@ public class InvitationCodeService implements IInvitationCodeService {
      * 更新邀请码
      * <p>
      * 用户名 账户类型 登记总数 今日剩余登记数
-     *
-     * @param invitationCode
      */
     @Override
     public void updateInvitationCodeDetials(InvitationCode invitationCode) {
@@ -142,12 +122,11 @@ public class InvitationCodeService implements IInvitationCodeService {
      * 产生一个随机的邀请码
      *
      * @param length 控制邀请码的位数
-     * @return
      */
     public String getRandomString(int length) {
         String str = "abcdefghijklmnopqrstuvwxyz0123456789";
         Random random = new Random();
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         for (int i = 0; i < length; i++) {
             int number = random.nextInt(36);
             sb.append(str.charAt(number));

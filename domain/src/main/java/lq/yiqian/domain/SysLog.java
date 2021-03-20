@@ -1,6 +1,7 @@
 package lq.yiqian.domain;
 
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.util.Date;
@@ -10,6 +11,7 @@ import java.util.Date;
  * @create 2020-06-09 19:48
  */
 @Data
+@AllArgsConstructor
 public class SysLog {
     private Integer id;
     private Date visitTime;// 访问时间

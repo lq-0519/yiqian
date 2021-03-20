@@ -4,10 +4,10 @@ import com.github.pagehelper.PageHelper;
 import lq.yiqian.dao.SysLogDao;
 import lq.yiqian.domain.SysLog;
 import lq.yiqian.service.ISysLogService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -21,13 +21,11 @@ import java.util.List;
 @Service
 @Transactional
 public class SysLogService implements ISysLogService {
-    @Autowired
+    @Resource
     private SysLogDao sysLogDao;
 
     /**
      * 新增日志
-     *
-     * @param sysLog
      */
     @Override
     public void save(SysLog sysLog) {
@@ -36,11 +34,6 @@ public class SysLogService implements ISysLogService {
 
     /**
      * 根据uri查询
-     *
-     * @param condition
-     * @param page
-     * @param size
-     * @return
      */
     @Override
     public List<SysLog> findByUri(String condition, Integer page, Integer size) {

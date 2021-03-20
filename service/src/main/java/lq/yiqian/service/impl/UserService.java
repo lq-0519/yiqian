@@ -25,9 +25,6 @@ public class UserService implements IUserService {
      * 用户登录
      * <p>
      * 检验用户名和密码是否正确
-     *
-     * @param user
-     * @return
      */
     @Override
     public User login(User user) {

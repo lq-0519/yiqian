@@ -9,13 +9,13 @@ import lq.yiqian.service.ISearchHistoryService;
 import lq.yiqian.service.IVariableService;
 import lq.yiqian.utils.IpUtils;
 import lq.yiqian.utils.JedisPoolUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import redis.clients.jedis.Jedis;
 
+import javax.annotation.Resource;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
@@ -32,13 +32,13 @@ import java.util.List;
 @Controller
 @RequestMapping("/book")
 public class BookListController {
-    @Autowired
+    @Resource
     private IBookListService bookListService;
-    @Autowired
+    @Resource
     private ISearchHistoryService searchHistoryService;
-    @Autowired
+    @Resource
     private ServletContext servletContext;
-    @Autowired
+    @Resource
     private IVariableService variableService;
 
     /**
@@ -46,12 +46,6 @@ public class BookListController {
      * <p>
      * 查询到了就返回查询出来的数据, 没查询到就返回到空的那个jsp页面
      * 查询的同时需要记录下来查询的结果
-     *
-     * @param request
-     * @param bookName
-     * @param page
-     * @param isSave
-     * @return
      */
     @RequestMapping("/findByBookName")
     public ModelAndView findByBookName(HttpServletRequest request,
@@ -74,7 +68,7 @@ public class BookListController {
             // 查询数据库, 序列化数据存入Redis, 返回数据
             // 默认一页13条数据
             List<Book> books = bookListService.findByBookName(bookName, page, 13);
-            pageInfo = new PageInfo(books);
+            pageInfo = new PageInfo<>(books);
             value = JSON.toJSONString(pageInfo);
             jedis.set(key, value);
             System.out.println("  Redis没命中");
@@ -122,8 +116,6 @@ public class BookListController {
 
     /**
      * 更新Redis缓存
-     *
-     * @return
      */
     @Deprecated
     @RequestMapping("/updateRedis")

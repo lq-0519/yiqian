@@ -3,10 +3,10 @@ package lq.yiqian.service.impl;
 import lq.yiqian.dao.VariableDao;
 import lq.yiqian.domain.Variable;
 import lq.yiqian.service.IVariableService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -16,13 +16,11 @@ import java.util.List;
 @Service
 @Transactional
 public class VariableService implements IVariableService {
-    @Autowired
+    @Resource
     private VariableDao variableDao;
 
     /**
      * 查询所有
-     *
-     * @return
      */
     @Override
     public List<Variable> findAll() {
@@ -31,9 +29,6 @@ public class VariableService implements IVariableService {
 
     /**
      * 根据键更新值
-     *
-     * @param name
-     * @param value
      */
     @Override
     public void updateByName_value(String name, String value) {
@@ -42,9 +37,6 @@ public class VariableService implements IVariableService {
 
     /**
      * 更新页脚信息
-     *
-     * @param qqGroup
-     * @param adminQQ
      */
     @Override
     public void updateFooterInfo(String qqGroup, String adminQQ) {
@@ -54,9 +46,6 @@ public class VariableService implements IVariableService {
 
     /**
      * 更新搜索次数
-     *
-     * @param searchTotal
-     * @param value
      */
     @Override
     public void updateSearchTotal(String searchTotal, String value) {

@@ -1,13 +1,13 @@
 package lq.yiqian.service.impl;
 
 import com.github.pagehelper.PageHelper;
+import lq.yiqian.dao.RegiBookDao;
 import lq.yiqian.domain.RegiBook;
 import lq.yiqian.service.IRegiBookService;
-import lq.yiqian.dao.RegiBookDao;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import java.util.Date;
 import java.util.List;
 
@@ -22,13 +22,11 @@ import java.util.List;
 @Service
 @Transactional
 public class RegiBookService implements IRegiBookService {
-    @Autowired
+    @Resource
     private RegiBookDao regiBookDao;
 
     /**
      * 缺书登记
-     *
-     * @param regiBook
      */
     @Override
     public void save(RegiBook regiBook) {
@@ -39,11 +37,6 @@ public class RegiBookService implements IRegiBookService {
 
     /**
      * 根据是否被处理查询regiBook
-     *
-     * @param fund
-     * @param page
-     * @param size
-     * @return
      */
     @Override
     public List<RegiBook> findByIsFund(Integer fund, Integer page, Integer size) {
@@ -53,9 +46,6 @@ public class RegiBookService implements IRegiBookService {
 
     /**
      * 根据id查询
-     *
-     * @param id
-     * @return
      */
     @Override
     public RegiBook findById(Integer id) {
@@ -64,8 +54,6 @@ public class RegiBookService implements IRegiBookService {
 
     /**
      * 更新书名和作者
-     *
-     * @param regiBook
      */
     @Override
     public void updateById_bookName_author_remarks(RegiBook regiBook) {
@@ -74,9 +62,6 @@ public class RegiBookService implements IRegiBookService {
 
     /**
      * 更新找书结果
-     *
-     * @param id
-     * @param result
      */
     @Override
     public void updateById_result_isFund(Integer id, String result) {
@@ -91,8 +76,6 @@ public class RegiBookService implements IRegiBookService {
 
     /**
      * 根据ID删除
-     *
-     * @param id
      */
     @Override
     public void delById(String id) {

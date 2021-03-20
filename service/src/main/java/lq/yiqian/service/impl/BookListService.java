@@ -36,11 +36,6 @@ public class BookListService implements IBookListService {
 
     /**
      * 根据书名查询书单
-     *
-     * @param bookName
-     * @param page
-     * @param size
-     * @return
      */
     @Override
     public List<Book> findByBookName(String bookName, int page, int size) {
@@ -50,9 +45,6 @@ public class BookListService implements IBookListService {
 
     /**
      * 添加新书
-     *
-     * @param bookName
-     * @param path
      */
     @Override
     public void save(String bookName, String path) {
@@ -82,7 +74,7 @@ public class BookListService implements IBookListService {
                 String bookName = split[0];
                 String page = split[1];
                 // 判断最近插入的书名是否包含这个key
-                if (appendBookName != null && appendBookName.contains(bookName)) {
+                if (appendBookName.contains(bookName)) {
                     // 包含, 更新这个键值对
                     // 查询数据库
                     List<Book> books = findByBookName(bookName, Integer.parseInt(page), 13);
@@ -98,8 +90,6 @@ public class BookListService implements IBookListService {
 
     /**
      * 将新插入的书名添加到Redis中
-     *
-     * @param bookName
      */
     @Override
     @Deprecated

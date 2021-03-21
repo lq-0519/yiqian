@@ -59,9 +59,6 @@ public class UserController {
      * <p>
      * 用户登录了就跳转到后台的首页
      * 没登录就跳转到登陆
-     *
-     * @param session
-     * @return
      */
     @RequestMapping("/isLogin")
     public String isLogin(HttpSession session) {
@@ -79,9 +76,6 @@ public class UserController {
      * 用户退出登录
      * <p>
      * 直接删除session中的user属性即可
-     *
-     * @param session
-     * @return
      */
     @RequestMapping("/loggedOut")
     public String loggedOut(HttpSession session) {

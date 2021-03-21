@@ -96,10 +96,6 @@ public class InvitationCodeController {
      * 显示邀请码的详细信息
      * <p>
      * 还要显示这个邀请码登记过的书
-     *
-     * @param id
-     * @param page
-     * @return
      */
     @RequestMapping("/showInvitationCodeDetials")
     public ModelAndView showInvitationCodeDetials(@RequestParam(name = "id") String id,
@@ -118,9 +114,6 @@ public class InvitationCodeController {
 
     /**
      * 更新邀请码
-     *
-     * @param invitationCode
-     * @return
      */
     @RequestMapping("/updateInvitationCodeDetials")
     public String updateInvitationCodeDetials(InvitationCode invitationCode) {

@@ -1,6 +1,8 @@
 package lq.yiqian.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
@@ -13,6 +15,8 @@ import java.util.Date;
  * 存储每一个邀请码信息
  */
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class InvitationCode {
     private String invitationCode;//邀请码, 也作为主键
     private String username;//用户名, 管理员自己填写的

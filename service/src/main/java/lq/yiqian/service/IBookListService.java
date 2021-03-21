@@ -14,9 +14,4 @@ public interface IBookListService {
     List<Book> findByBookName(String bookName, int page, int size);
 
     void save(String bookName, String path);
-
-    void updateRedis(String appendBookName);
-
-    @Deprecated
-    void saveBookNameToRedis(String bookName);
 }

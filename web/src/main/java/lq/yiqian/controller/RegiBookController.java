@@ -7,12 +7,12 @@ import lq.yiqian.service.IBookListService;
 import lq.yiqian.service.IInvitationCodeService;
 import lq.yiqian.service.IRegiBookService;
 import lq.yiqian.utils.MailUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -26,11 +26,11 @@ import java.util.List;
 @Controller
 @RequestMapping("/regiBook")
 public class RegiBookController {
-    @Autowired
+    @Resource
     private IBookListService bookListService;
-    @Autowired
+    @Resource
     private IRegiBookService regiBookService;
-    @Autowired
+    @Resource
     private IInvitationCodeService invitationCodeService;
 
     /**
@@ -39,9 +39,6 @@ public class RegiBookController {
      * 需要做如下工作:
      * 1 检验邀请码是否存在
      * 2 检验该邀请码今天还有没有剩余登记次数(每个邀请码一天只能登记5个, 登记次数每天01:00刷新)
-     *
-     * @param regiBook
-     * @return
      */
     @RequestMapping("/save")
     public ModelAndView save(RegiBook regiBook) {
@@ -88,9 +85,6 @@ public class RegiBookController {
      * 展示找书结果
      * <p>
      * 使用分页, 查询已经处理的数据
-     *
-     * @param page
-     * @return
      */
     @RequestMapping("/findByIsFund")
     public ModelAndView findByIsFund(@RequestParam(name = "page", defaultValue = "1") Integer page) {
@@ -105,8 +99,6 @@ public class RegiBookController {
 
     /**
      * 查询未处理的缺书登记
-     *
-     * @return
      */
     @RequestMapping("/findByUntreated")
     public ModelAndView findByUntreated() {
@@ -121,9 +113,6 @@ public class RegiBookController {
 
     /**
      * 根据id查询
-     *
-     * @param id
-     * @return
      */
     @RequestMapping("/findById")
     public ModelAndView findById(@RequestParam(name = "id") Integer id) {
@@ -136,9 +125,6 @@ public class RegiBookController {
 
     /**
      * 更新书名和作者
-     *
-     * @param regiBook
-     * @return
      */
     @RequestMapping("/updateById_bookName_author_remarks")
     public String updateById_bookName_author_remarks(RegiBook regiBook) {
@@ -152,12 +138,10 @@ public class RegiBookController {
      * 找到书了, 需要把找到的书添加到书单, 需要修改两个表, 一个是regiBook表, 另一个是bookList表
      * 没有找到就算了, 只需要更新一个regiBook表就行了
      *
-     * @param id
      * @param regiBookResult 0代表找到了 1代表没找到 2代表书库中有
      * @param remarks        登记找书结果时的备注信息
      * @param regiDate       登记时的时间(格式:MMdd)
      * @param yearAndMonth   登记时的时间(格式:yyyyMM)
-     * @return
      */
     @RequestMapping("/updateResult")
     public String updateResult(Integer id, String regiBookResult, String remarks, String regiDate, String yearAndMonth) {
@@ -168,9 +152,7 @@ public class RegiBookController {
         String result = "";// 找书结果
         String emailResult = "登记书名: " + bookName + ",\n登记时间: " + regiDate + ",\n找书结果: ";// 要用邮箱发送的内容
         if ("0".equals(regiBookResult)) {
-            // 新起一个线程去更新Redis缓存
             String appendBookName = bookName;
-            new Thread(() -> bookListService.updateRedis(appendBookName)).start();
             // 求出path
             String path = "小书屋/06-后续更新/" + yearAndMonth + "/" + regiDate;
             // regiBookResult=0 代表找到了
@@ -235,10 +217,8 @@ public class RegiBookController {
 
     /**
      * 查询已经处理过的缺书登记
-     *
-     * @param page
-     * @return
      */
+    @SuppressWarnings("unchecked")
     @RequestMapping("/findByIsFundAdmin")
     public ModelAndView findByIsFundAdmin(@RequestParam(name = "page", defaultValue = "1") Integer page) {
         ModelAndView modelAndView = new ModelAndView();
@@ -251,9 +231,6 @@ public class RegiBookController {
 
     /**
      * 根据id删除
-     *
-     * @param id
-     * @return
      */
     @RequestMapping("/delById")
     public String delById(@RequestParam(name = "id") String id) {

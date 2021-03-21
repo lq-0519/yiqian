@@ -1,6 +1,5 @@
 package lq.yiqian.controller;
 
-import com.alibaba.fastjson.JSON;
 import com.github.pagehelper.PageInfo;
 import lq.yiqian.domain.Book;
 import lq.yiqian.domain.SearchHistory;
@@ -8,12 +7,10 @@ import lq.yiqian.service.IBookListService;
 import lq.yiqian.service.ISearchHistoryService;
 import lq.yiqian.service.IVariableService;
 import lq.yiqian.utils.IpUtils;
-import lq.yiqian.utils.JedisPoolUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-import redis.clients.jedis.Jedis;
 
 import javax.annotation.Resource;
 import javax.servlet.ServletContext;
@@ -58,26 +55,9 @@ public class BookListController {
             modelAndView.setViewName("index");
             return modelAndView;
         }
-        Jedis jedis = JedisPoolUtils.getJedis();
-        // 先查Redis
-        String key = bookName + "---" + page; // key的格式: bookName---page
-        String value = jedis.get(key);
-        PageInfo pageInfo = null;
-        if (value == null || value.length() == 0) {
-            // 没查到
-            // 查询数据库, 序列化数据存入Redis, 返回数据
-            // 默认一页13条数据
-            List<Book> books = bookListService.findByBookName(bookName, page, 13);
-            pageInfo = new PageInfo<>(books);
-            value = JSON.toJSONString(pageInfo);
-            jedis.set(key, value);
-            System.out.println("  Redis没命中");
-        } else {
-            // 查到了, 序列化数据, 返回
-            pageInfo = JSON.parseObject(value, PageInfo.class);
-            System.out.println("  Redis命中");
-        }
-        jedis.close();
+        // 默认一页13条数据
+        List<Book> books = bookListService.findByBookName(bookName, page, 13);
+        PageInfo pageInfo = new PageInfo<>(books);
         //获取查询到的结果数
         long total = pageInfo.getTotal();
         modelAndView.addObject("bookName", bookName);
@@ -114,13 +94,4 @@ public class BookListController {
         return modelAndView;
     }
 
-    /**
-     * 更新Redis缓存
-     */
-    @Deprecated
-    @RequestMapping("/updateRedis")
-    public String updateRedis() {
-//        bookListService.updateRedis();
-        return "redirect:/regiBook/findByUntreated";
-    }
 }

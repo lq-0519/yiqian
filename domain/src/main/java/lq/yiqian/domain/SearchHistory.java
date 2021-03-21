@@ -1,6 +1,8 @@
 package lq.yiqian.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
@@ -13,6 +15,8 @@ import java.util.Date;
  * 存储每一次的搜索记录
  */
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class SearchHistory {
     private Integer id;//唯一id
     private String ip;//查询者的ip地址

@@ -24,21 +24,18 @@ import java.util.List;
  */
 @WebListener
 public class InitApplicationListener implements ServletContextListener {
-    private IVariableService variableService;
 
     /**
      * 启动时从数据库中加在公告
      * <p>
      * 从数据库中加载公告需要使用noticeService对象, noticeService对象需要从WebApplicationContext中获取,
      * 不能使用注入的方式获取noticeService对象, 那是因为spring容器还没有建立起来, 通过注入是无法获取到对象的
-     *
-     * @param sce
      */
     @Override
     public void contextInitialized(ServletContextEvent sce) {
         ServletContext servletContext = sce.getServletContext();
         WebApplicationContext applicationContext = WebApplicationContextUtils.getWebApplicationContext(servletContext);// 获取spring容器对象
-        variableService = (IVariableService) applicationContext.getBean("variableService");// 获取noticeService对象
+        IVariableService variableService = (IVariableService) applicationContext.getBean("variableService");// 获取noticeService对象
         //从数据库中加载
         List<Variable> variables= variableService.findAll();
         // 添加到servletContext中

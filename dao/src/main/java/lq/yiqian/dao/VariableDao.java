@@ -14,18 +14,19 @@ import java.util.List;
 public interface VariableDao {
     /**
      * 查询所有
-     *
-     * @return
      */
     @Select("select id, name, value from variable ")
     List<Variable> findAll();
 
     /**
      * 更新数据
-     *
-     * @param name
-     * @param value
      */
     @Update("update variable set value=#{value} where name = #{name}")
     void updateByName_value(@Param("name") String name, @Param("value") String value);
+
+    /**
+     * 查询变量
+     */
+    @Select("select * from variable where name like #{name}")
+    Variable queryByName(@Param("name") String name);
 }

@@ -41,10 +41,6 @@ public class VariableController {
 
     /**
      * 更新页脚信息
-     *
-     * @param qqGroup
-     * @param adminQQ
-     * @return
      */
     @RequestMapping("/updateFooterInfo")
     public ModelAndView updateFooterInfo(String qqGroup, String adminQQ) {

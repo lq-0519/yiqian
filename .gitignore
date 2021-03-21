@@ -2,3 +2,5 @@
 *.class
 *.iml
 target/
+/web/src/main/resources/db.properties
+/utils/src/main/java/lq/yiqian/utils/MailUtils.java

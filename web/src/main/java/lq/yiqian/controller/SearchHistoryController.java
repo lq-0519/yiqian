@@ -30,9 +30,6 @@ public class SearchHistoryController {
      * 展示查询记录
      * <p>
      * 使用分页
-     *
-     * @param page
-     * @return
      */
     @RequestMapping("/showSearchHistory")
     public ModelAndView showSearchHistory(@RequestParam(name = "page", defaultValue = "1") Integer page) {
@@ -52,9 +49,6 @@ public class SearchHistoryController {
      * 展示书库热搜
      * <p>
      * 使用分页
-     *
-     * @param page
-     * @return
      */
     @RequestMapping("/showTopSearch")
     public ModelAndView showTopSearch(@RequestParam(name = "page", defaultValue = "1") Integer page) {

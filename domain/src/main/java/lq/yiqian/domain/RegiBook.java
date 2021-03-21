@@ -1,6 +1,8 @@
 package lq.yiqian.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
@@ -13,6 +15,8 @@ import java.util.Date;
  * 存储缺书登记的每一个信息
  */
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @SuppressWarnings("SpellCheckingInspection")
 public class RegiBook {
     private Integer id;//唯一id
@@ -24,4 +28,5 @@ public class RegiBook {
     private String result;//找书结果, 可以填 '未找到' or '书库中要'
     private Date regiDate;//登记日期
     private String email;//登记使用的邮箱, 用于发送找书结果通知
+    private InvitationCode invitationCode;
 }

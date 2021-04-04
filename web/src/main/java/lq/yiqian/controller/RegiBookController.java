@@ -8,6 +8,7 @@ import lq.yiqian.service.IInvitationCodeService;
 import lq.yiqian.service.IRegiBookService;
 import lq.yiqian.utils.MailUtils;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -203,11 +204,12 @@ public class RegiBookController {
             }
         }
         // 发送找书结果的邮件
-        if (email != null && email.length() > 0) {
+        if (!StringUtils.isEmpty(email)) {
             emailResult = emailResult + result + ",\n详情请访问: " +
                     "<a href='http://182.92.81.132/regiBook/findByIsFund'>找书结果</a> " +
                     "\n此邮件为自动发送, 请勿回复!";
             String finalEmailResult = emailResult;
+            System.out.println("开始发送邮件, finalEmailResult:" + finalEmailResult + ", email:" + email);
             new Thread(() -> MailUtils.sendMail(email, finalEmailResult, "壹仟书库 找书结果")).start();
         }
         // 更新regiBook表

@@ -135,14 +135,14 @@
                             <span class="help-block"></span>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="email" class="col-sm-2 control-label">邮箱</label>
-                        <div class="col-sm-7">
-                            <input type="email" value="${email}" name="email" class="form-control" id="email"
-                                   placeholder="填写之后 找书结果会以邮箱的形式通知">
-                            <span class="help-block"></span>
-                        </div>
-                    </div>
+                    <%--                    <div class="form-group">--%>
+                    <%--                        <label for="email" class="col-sm-2 control-label">邮箱</label>--%>
+                    <%--                        <div class="col-sm-7">--%>
+                    <%--                            <input type="email" value="${email}" name="email" class="form-control" id="email"--%>
+                    <%--                                   placeholder="填写之后 找书结果会以邮箱的形式通知">--%>
+                    <%--                            <span class="help-block"></span>--%>
+                    <%--                        </div>--%>
+                    <%--                    </div>--%>
                     <div id="div4" class="form-group">
                         <div class="col-sm-offset-4 col-sm-7">
                             <button type="submit" class="btn btn-default">提交</button>

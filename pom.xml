@@ -195,5 +195,11 @@
             <artifactId>fastjson</artifactId>
             <version>1.1.37</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.ibatis/ibatis-core -->
+        <dependency>
+            <groupId>org.apache.ibatis</groupId>
+            <artifactId>ibatis-core</artifactId>
+            <version>3.0</version>
+        </dependency>
     </dependencies>
 </project>

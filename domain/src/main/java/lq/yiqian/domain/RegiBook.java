@@ -1,9 +1,5 @@
 package lq.yiqian.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import java.util.Date;
 
 /**
@@ -14,9 +10,6 @@ import java.util.Date;
 /**
  * 存储缺书登记的每一个信息
  */
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 @SuppressWarnings("SpellCheckingInspection")
 public class RegiBook {
     private Integer id;//唯一id
@@ -29,4 +22,100 @@ public class RegiBook {
     private Date regiDate;//登记日期
     private String email;//登记使用的邮箱, 用于发送找书结果通知
     private InvitationCode invitationCode;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getBookName() {
+        return bookName;
+    }
+
+    public void setBookName(String bookName) {
+        this.bookName = bookName;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public String getInvitationCodeId() {
+        return invitationCodeId;
+    }
+
+    public void setInvitationCodeId(String invitationCodeId) {
+        this.invitationCodeId = invitationCodeId;
+    }
+
+    public String getRemarks() {
+        return remarks;
+    }
+
+    public void setRemarks(String remarks) {
+        this.remarks = remarks;
+    }
+
+    public Integer getIsFund() {
+        return isFund;
+    }
+
+    public void setIsFund(Integer isFund) {
+        this.isFund = isFund;
+    }
+
+    public String getResult() {
+        return result;
+    }
+
+    public void setResult(String result) {
+        this.result = result;
+    }
+
+    public Date getRegiDate() {
+        return regiDate;
+    }
+
+    public void setRegiDate(Date regiDate) {
+        this.regiDate = regiDate;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public InvitationCode getInvitationCode() {
+        return invitationCode;
+    }
+
+    public void setInvitationCode(InvitationCode invitationCode) {
+        this.invitationCode = invitationCode;
+    }
+
+    @Override
+    public String toString() {
+        return "RegiBook{" +
+                "id=" + id +
+                ", bookName='" + bookName + '\'' +
+                ", author='" + author + '\'' +
+                ", invitationCodeId='" + invitationCodeId + '\'' +
+                ", remarks='" + remarks + '\'' +
+                ", isFund=" + isFund +
+                ", result='" + result + '\'' +
+                ", regiDate=" + regiDate +
+                ", email='" + email + '\'' +
+                ", invitationCode=" + invitationCode +
+                '}';
+    }
 }

@@ -13,7 +13,7 @@ import java.util.List;
  * @author LQ
  * @create 2020-07-04 12:06
  */
-@Service
+@Service("variableService")
 @Transactional
 public class VariableService implements IVariableService {
     @Resource

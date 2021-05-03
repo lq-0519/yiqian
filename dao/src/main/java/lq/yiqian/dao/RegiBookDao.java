@@ -2,7 +2,14 @@ package lq.yiqian.dao;
 
 import lq.yiqian.domain.InvitationCode;
 import lq.yiqian.domain.RegiBook;
-import org.apache.ibatis.annotations.*;
+import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.One;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Result;
+import org.apache.ibatis.annotations.Results;
+import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 import org.apache.ibatis.mapping.FetchType;
 
 import java.util.List;
@@ -18,8 +25,6 @@ import java.util.List;
 public interface RegiBookDao {
     /**
      * 缺书登记
-     *
-     * @param regiBook
      */
     @Insert("insert into regiBook(bookName, author, invitationCodeId, remarks, isFund, regiDate, email) " +
             " values(#{bookName}, #{author}, #{invitationCodeId}, #{remarks}, #{isFund}, #{regiDate}, #{email})")
@@ -27,9 +32,6 @@ public interface RegiBookDao {
 
     /**
      * 根据isFund查询
-     *
-     * @param isFund
-     * @return
      */
     @Select("select bookName, author, invitationCodeId, remarks, isFund, result, id, regiDate, email " +
             " from regiBook where isFund = #{isFund} order by regiDate desc")
@@ -50,9 +52,6 @@ public interface RegiBookDao {
 
     /**
      * 根据id查询
-     *
-     * @param id
-     * @return
      */
     @Select("select bookName, author, invitationCodeId, remarks, isFund, result, id, regiDate, email " +
             " from regiBook where id = #{id} ")
@@ -73,26 +72,18 @@ public interface RegiBookDao {
 
     /**
      * 更新书名和作者
-     *
-     * @param regiBook
      */
     @Update("update regiBook set bookName = #{bookName}, author = #{author}, remarks = #{remarks} where id = #{id}")
     void updateById_bookName_author_remarks(RegiBook regiBook);
 
     /**
      * 更新找书结果
-     *
-     * @param id
-     * @param result
      */
     @Update("update regiBook set result = #{result}, isFund = 1 where id = #{id}")
     void updateById_result_isFund(@Param("id") Integer id, @Param("result") String result);
 
     /**
      * 根据邀请码查询登记过的书
-     *
-     * @param id
-     * @return
      */
     @Select("select bookName, author, invitationCodeId, remarks, isFund, result, id, regiDate, email from regiBook " +
             "where invitationCodeId = #{id} order by regiDate desc")
@@ -100,8 +91,6 @@ public interface RegiBookDao {
 
     /**
      * 根据id删除
-     *
-     * @param id
      */
     @Delete("delete from regiBook where id = #{id}")
     void delById(String id);

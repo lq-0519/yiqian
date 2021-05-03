@@ -35,6 +35,7 @@ public class InitApplicationListener implements ServletContextListener {
     public void contextInitialized(ServletContextEvent sce) {
         ServletContext servletContext = sce.getServletContext();
         WebApplicationContext applicationContext = WebApplicationContextUtils.getWebApplicationContext(servletContext);// 获取spring容器对象
+        assert applicationContext != null;
         IVariableService variableService = (IVariableService) applicationContext.getBean("variableService");// 获取noticeService对象
         //从数据库中加载
         List<Variable> variables= variableService.findAll();

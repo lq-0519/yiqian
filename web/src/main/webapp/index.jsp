@@ -1,7 +1,8 @@
+<%--suppress ELValidationInJSP --%>
 <%--
   首页
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
     <meta charset="utf-8">
@@ -24,6 +25,7 @@
             /*padding-left: 7%;*/
             font-size: 18px;
         }
+
         img{
             padding-bottom: 3%;
         }
@@ -35,12 +37,12 @@
 <div class="container-fluid">
     <p id="p1" class="lead col-md-offset-1">${applicationScope.noticeIndex}</p>
     <div>
-        <img class="img-responsive col-md-7 " src="img/img1.jpeg">
+        <img class="img-responsive col-md-7 " src="img/img1.jpeg" alt="">
         <img class="img-responsive col-md-7 " src="img/img2.JPEG">
         <img class="img-responsive col-md-7 " src="img/img3.JPEG">
         <img class="img-responsive col-md-7 " src="img/img4.jpeg">
         <div class="col-md-7">
-            <img class="img-responsive col-md-6 col-md-offset-2"  src="img/img5.JPG">
+            <img class="img-responsive col-md-6 col-md-offset-2" src="img/img5.JPG">
         </div>
         <img class="img-responsive col-md-7 " src="img/img6.jpeg">
         <img class="img-responsive col-md-7 " src="img/img7.JPEG">

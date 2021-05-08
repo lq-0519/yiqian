@@ -1,13 +1,14 @@
 package lq.yiqian.controller;
 
 import com.github.pagehelper.PageInfo;
-import lq.yiqian.domain.Book;
 import lq.yiqian.domain.SearchHistory;
 import lq.yiqian.service.IBookListService;
 import lq.yiqian.service.ISearchHistoryService;
 import lq.yiqian.service.IVariableService;
 import lq.yiqian.utils.IpUtils;
+import lq.yiqian.utils.es.pojo.Book;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -50,14 +51,13 @@ public class BookListController {
                                        @RequestParam(name = "page", defaultValue = "1") Integer page,
                                        @RequestParam(name = "isSave", defaultValue = "1") Integer isSave) {
         ModelAndView modelAndView = new ModelAndView();
-        if (bookName == null || bookName.length() == 0) {
+        if (StringUtils.isEmpty(bookName)) {
             //传过来的值不合法, 直接返回即可
             modelAndView.setViewName("index");
             return modelAndView;
         }
         // 默认一页13条数据
-        List<Book> books = bookListService.findByBookName(bookName, page, 13);
-        PageInfo pageInfo = new PageInfo<>(books);
+        PageInfo<Book> pageInfo = bookListService.findByBookName(bookName, page, 13);
         //获取查询到的结果数
         long total = pageInfo.getTotal();
         modelAndView.addObject("bookName", bookName);
@@ -70,6 +70,11 @@ public class BookListController {
             modelAndView.setViewName("pages/resultEmpty");
         }
         // 记录搜索
+        searchRecord(request, bookName, isSave, (int) total);
+        return modelAndView;
+    }
+
+    private void searchRecord(HttpServletRequest request, String bookName, Integer isSave, int total) {
         if (isSave == 1) {
             String searchTotalStr = (String) servletContext.getAttribute("searchTotal");
             Integer searchTotal = Integer.parseInt(searchTotalStr);
@@ -80,7 +85,7 @@ public class BookListController {
             SearchHistory searchHistory = new SearchHistory();
             searchHistory.setIp(ip);
             searchHistory.setBookName(bookName);
-            searchHistory.setResult((int) total);
+            searchHistory.setResult(total);
             searchHistory.setSearchTime(searchDate);
             searchHistoryService.save(searchHistory);
             // 更新搜索次数
@@ -91,7 +96,5 @@ public class BookListController {
             // 更新数据库
             variableService.updateSearchTotal("searchTotal", "" + searchTotal);// 更新数据库
         }
-        return modelAndView;
     }
-
 }

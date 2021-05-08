@@ -91,8 +91,8 @@ public class RegiBookController {
     public ModelAndView findByIsFund(@RequestParam(name = "page", defaultValue = "1") Integer page) {
 //        int i = 1 / 0;  // 用于测试页面抛出异常
         ModelAndView modelAndView = new ModelAndView();
-        List<RegiBook> regiBooks = regiBookService.findByIsFund(1, page, 40);// 默认页面大小为40
-        PageInfo pageInfo = new PageInfo(regiBooks);
+        List<RegiBook> regiBooks = regiBookService.findByIsFund(1, page, 40);
+        PageInfo<RegiBook> pageInfo = new PageInfo<>(regiBooks);
         modelAndView.addObject("pageInfo", pageInfo);
         modelAndView.setViewName("pages/regiResult");
         return modelAndView;
@@ -105,7 +105,7 @@ public class RegiBookController {
     public ModelAndView findByUntreated() {
         ModelAndView modelAndView = new ModelAndView();
         List<RegiBook> regiBooks = regiBookService.findByIsFund(0, 1, 300);
-        PageInfo pageInfo = new PageInfo(regiBooks);
+        PageInfo<RegiBook> pageInfo = new PageInfo<>(regiBooks);
         modelAndView.addObject("pageInfo", pageInfo);
         modelAndView.setViewName("pages/admin/regiBook");
         return modelAndView;

@@ -1,6 +1,7 @@
 package lq.yiqian.service;
 
-import lq.yiqian.domain.Book;
+import com.github.pagehelper.PageInfo;
+import lq.yiqian.utils.es.pojo.Book;
 
 import java.util.List;
 
@@ -9,9 +10,7 @@ import java.util.List;
  * @create 2020-06-24 15:56
  */
 public interface IBookListService {
-    public List<Book> findAll();
-
-    List<Book> findByBookName(String bookName, int page, int size);
+    PageInfo<Book> findByBookName(String bookName, int page, int size);
 
     void save(String bookName, String path);
 }

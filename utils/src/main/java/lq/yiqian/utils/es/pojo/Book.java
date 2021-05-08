@@ -26,6 +26,11 @@ public class Book implements Serializable {
     public Book() {
     }
 
+    public Book(String bookName, String path) {
+        this.bookName = bookName;
+        this.path = path;
+    }
+
     public Book(Long id, String bookName, String path) {
         this.id = id;
         this.bookName = bookName;

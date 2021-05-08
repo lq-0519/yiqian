@@ -17,7 +17,7 @@ import java.util.ArrayList;
 @Service
 public class UtilsService implements IUtilsService {
 
-    @Autowired
+    @Resource
     private ElasticsearchTemplate elasticsearchTemplate;
 
     @Resource

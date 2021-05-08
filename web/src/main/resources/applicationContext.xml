@@ -14,10 +14,12 @@
 	http://www.springframework.org/schema/tx/spring-tx.xsd">
 
     <!-- 开启注解扫描，管理service和dao -->
-    <context:component-scan base-package="lq.yiqian.service">
-    </context:component-scan>
-    <context:component-scan base-package="lq.yiqian.dao">
-    </context:component-scan>
+    <context:component-scan base-package="lq.yiqian.service"/>
+    <context:component-scan base-package="lq.yiqian.dao"/>
+
+    <!-- 使用注解式注入 -->
+    <context:annotation-config/>
+    <context:component-scan base-package="lq.yiqian.utils"/>
 
     <context:property-placeholder location="classpath:db.properties"/>
     <!-- 配置连接池 -->

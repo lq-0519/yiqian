@@ -18,11 +18,27 @@
            http://www.springframework.org/schema/data/elasticsearch/spring-elasticsearch-1.0.xsd
            ">
 
-
     <!-- 扫描controller的注解，别的不扫描 -->
-    <context:component-scan base-package="lq.yiqian.controller">
-    </context:component-scan>
+    <context:component-scan base-package="lq.yiqian.controller"/>
 
+    <!-- 添加注解驱动, 该配置详见: https://code-examples.net/en/q/151c0da -->
+    <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean"/>
+
+    <bean class="org.springframework.data.repository.support.DomainClassConverter">
+        <constructor-arg ref="conversionService"/>
+    </bean>
+
+    <mvc:annotation-driven conversion-service="conversionService">
+        <mvc:argument-resolvers>
+            <ref bean="sortResolver"/>
+            <ref bean="pageableResolver"/>
+        </mvc:argument-resolvers>
+    </mvc:annotation-driven>
+
+    <bean id="sortResolver" class="org.springframework.data.web.SortHandlerMethodArgumentResolver"/>
+    <bean id="pageableResolver" class="org.springframework.data.web.PageableHandlerMethodArgumentResolver">
+        <constructor-arg ref="sortResolver"/>
+    </bean>
 
     <!-- 配置视图解析器 -->
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -32,7 +48,9 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
-    <elasticsearch:transport-client id="client" cluster-nodes="localhost:9300" cluster-name=""/>
+<!--    <elasticsearch:transport-client id="client"/>-->
+<!--    <elasticsearch:repositories base-package="lq.yiqian.utils.es.repository" />-->
+<!--    <elasticsearch:node-client cluster-name="elasticsearch"/>-->
 
     <!-- 设置静态资源不过滤 -->
     <mvc:resources location="/css/" mapping="/css/**"/>

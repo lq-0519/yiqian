@@ -11,4 +11,5 @@ public interface IUtilsService {
 
     void testES();
 
+    void findAll(String bookName);
 }

@@ -23,8 +23,7 @@ import java.net.UnknownHostException;
 public class TransportClientConfig extends ElasticsearchConfigurationSupport {
     @Bean
     public Client elasticsearchClient() throws UnknownHostException {
-        System.out.println("elasticsearchClient...");
-        Settings settings = Settings.builder().put("cluster.name", "docker-cluster").build();
+        Settings settings = Settings.builder().put("", "").build();
         TransportClient client = new PreBuiltTransportClient(settings);
         client.addTransportAddress(new TransportAddress(InetAddress.getByName("127.0.0.1"), 9300));
         return client;
@@ -32,7 +31,6 @@ public class TransportClientConfig extends ElasticsearchConfigurationSupport {
 
     @Bean(name = {"elasticsearchOperations", "elasticsearchTemplate"})
     public ElasticsearchTemplate elasticsearchTemplate() throws UnknownHostException {
-        System.out.println("elasticsearchTemplate...");
         return new ElasticsearchTemplate(elasticsearchClient());
     }
 }

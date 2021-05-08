@@ -3,8 +3,13 @@ package lq.yiqian.service.impl;
 import lq.yiqian.service.IUtilsService;
 import lq.yiqian.utils.es.pojo.Book;
 import lq.yiqian.utils.es.repository.BookRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lq.yiqian.utils.es.resultMapper.HighlightResultMapper;
+import org.elasticsearch.index.query.QueryBuilders;
+import org.elasticsearch.search.fetch.subphase.highlight.HighlightBuilder;
+import org.springframework.data.domain.Page;
 import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
+import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilder;
+import org.springframework.data.elasticsearch.core.query.SearchQuery;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -30,17 +35,35 @@ public class UtilsService implements IUtilsService {
 
     @Override
     public void createIndex() {
-        elasticsearchTemplate.createIndex(Book.class);
-        elasticsearchTemplate.putMapping(Book.class);
+        try {
+            elasticsearchTemplate.createIndex(Book.class);
+            elasticsearchTemplate.putMapping(Book.class);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void testES() {
         ArrayList<Book> books = new ArrayList<>();
-        books.add(new Book("123", "234"));
-        books.add(new Book("qwe", "wer"));
-        books.add(new Book("asd", "sdf"));
-        books.add(new Book("zxc", "xcv"));
+        books.add(new Book(1L, "小米手机7", "234"));
+        books.add(new Book(2L, "坚果手机R1", "wer"));
+        books.add(new Book(3L, "华为META10", "sdf"));
+        books.add(new Book(4L, "小米Mix2S", "xcv"));
         bookRepository.saveAll(books);
+    }
+
+    @Override
+    public void findAll(String bookName) {
+        SearchQuery queryBuilder = new NativeSearchQueryBuilder()
+                .withQuery(QueryBuilders.matchQuery("bookName", bookName))
+                .withHighlightFields(new HighlightBuilder
+                        .Field("bookName")
+                        .preTags("<font>")
+                        .postTags("</font>"))
+                .build();
+        Page<Book> books = this.elasticsearchTemplate.queryForPage(queryBuilder, Book.class, new HighlightResultMapper());
+        System.out.println("books = " + books);
+        books.forEach(System.out::println);
     }
 }

@@ -5,19 +5,22 @@ import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldType;
 
+import java.io.Serializable;
+
 /**
  * @author LQ
  * @create 2021-05-06 20:36
  */
 @Document(indexName = "book", type = "book", shards = 1, replicas = 0)
-public class Book {
+public class Book implements Serializable {
     @Id
+    @Field
     private Long id;
 
     @Field(type = FieldType.Text, analyzer = "ik_max_word")
     private String bookName;//书名
 
-    @Field(index = false)
+    @Field(index = false, type = FieldType.Text)
     private String path;//书在百度网盘中的位置
 
     public Book() {
@@ -25,11 +28,6 @@ public class Book {
 
     public Book(Long id, String bookName, String path) {
         this.id = id;
-        this.bookName = bookName;
-        this.path = path;
-    }
-
-    public Book(String bookName, String path) {
         this.bookName = bookName;
         this.path = path;
     }

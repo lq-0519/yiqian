@@ -1,7 +1,6 @@
 package lq.yiqian.controller;
 
 import lq.yiqian.service.IUtilsService;
-import lq.yiqian.service.impl.UtilsService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -17,17 +16,34 @@ public class UtilsController {
     @Resource
     private IUtilsService utilsService;
 
+    /**
+     * 将数据库中所有的数据迁移到es中
+     */
     public void addAll() {
         utilsService.addAll();
     }
 
+    /**
+     * 创建索引
+     */
     @RequestMapping("createIndex")
     public void createIndex() {
         utilsService.createIndex();
     }
 
+    /**
+     * 测试
+     */
     @RequestMapping("testES")
     public void testES() {
         utilsService.testES();
+    }
+
+    /**
+     * 查询所有
+     */
+    @RequestMapping("findAll")
+    public void findAll(String bookName) {
+        utilsService.findAll(bookName);
     }
 }

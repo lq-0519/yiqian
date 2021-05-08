@@ -14,7 +14,6 @@ import java.io.Serializable;
 @Document(indexName = "book", type = "book", shards = 1, replicas = 0)
 public class Book implements Serializable {
     @Id
-    @Field
     private Long id;
 
     @Field(type = FieldType.Text, analyzer = "ik_max_word")

@@ -44,7 +44,7 @@
 <div id="div4" class="container-fluid" >
     <div id="div2">
         你搜索的是:&nbsp <strong>${bookName}</strong><br>
-        共搜到<strong>${pageInfo.total}</strong>个结果<br>
+        共搜到<strong>${pageInfo.total}</strong>个结果, 按相关性排序<br>
         手机端向左滑动查看路径
     </div>
 

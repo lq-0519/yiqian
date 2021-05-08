@@ -36,7 +36,7 @@ public class BookListService implements IBookListService {
         pageInfo.setTotal(books.getTotalElements());
         pageInfo.setPages(books.getTotalPages());
         pageInfo.setList(books.getContent());
-        pageInfo.setNavigatepageNums(this.getNavigatePageNums(books, page));
+        pageInfo.setNavigatepageNums(this.getNavigatePageNums(books.getTotalPages(), page));
         System.out.println("封装后的pageInfo = " + JSON.toJSONString(pageInfo));
         return pageInfo;
     }
@@ -49,8 +49,7 @@ public class BookListService implements IBookListService {
         utilsService.save(bookName, path);
     }
 
-    private int[] getNavigatePageNums(AggregatedPage<Book> books, int page) {
-        int totalPages = books.getTotalPages();
+    private int[] getNavigatePageNums(int totalPages, int page) {
         if (totalPages == 0) {
             return null;
         }
@@ -82,7 +81,6 @@ public class BookListService implements IBookListService {
         for (int j = 0; j < 8; j++) {
             ints[j] = i + j;
         }
-        return null;
+        return ints;
     }
-
 }

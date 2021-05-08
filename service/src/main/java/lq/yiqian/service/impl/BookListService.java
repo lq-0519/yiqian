@@ -2,7 +2,6 @@ package lq.yiqian.service.impl;
 
 import com.alibaba.fastjson.JSON;
 import com.github.pagehelper.PageInfo;
-import lq.yiqian.dao.BookListDao;
 import lq.yiqian.service.IBookListService;
 import lq.yiqian.utils.es.pojo.Book;
 import org.springframework.data.elasticsearch.core.aggregation.AggregatedPage;
@@ -22,9 +21,6 @@ import javax.annotation.Resource;
 @Service
 @Transactional
 public class BookListService implements IBookListService {
-    @Resource
-    private BookListDao bookListDao;
-
     @Resource
     private UtilsService utilsService;
 
@@ -50,7 +46,7 @@ public class BookListService implements IBookListService {
      */
     @Override
     public void save(String bookName, String path) {
-        bookListDao.save(bookName, path);
+        utilsService.save(bookName, path);
     }
 
     private int[] getNavigatePageNums(AggregatedPage<Book> books, int page) {

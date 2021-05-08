@@ -14,7 +14,9 @@ public interface IUtilsService {
 
     void testES();
 
-    void findAll(String bookName);
-
     AggregatedPage<Book> findByBookName(String bookName, int page, int size);
+
+    void save(String bookName, String path);
+
+    void dataTransferToES();
 }

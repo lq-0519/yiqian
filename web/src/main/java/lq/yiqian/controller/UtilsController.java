@@ -40,10 +40,10 @@ public class UtilsController {
     }
 
     /**
-     * 查询所有
+     * 数据转移
      */
-    @RequestMapping("findAll")
-    public void findAll(String bookName) {
-        utilsService.findAll(bookName);
+    @RequestMapping("dataTransferToES")
+    public void dataTransferToES() {
+        utilsService.dataTransferToES();
     }
 }

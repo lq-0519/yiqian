@@ -18,27 +18,25 @@ import java.util.List;
 public interface BookListDao {
     /**
      * 查询所有
-     *
-     * @return
      */
     @Select("select id, bookName, path from bookList")
     public List<Book> findAll();
 
     /**
      * 根据书名查询
-     *
-     * @param bookName
-     * @return
      */
     @Select("select id, bookName, path from bookList where bookName like #{bookName}")
     List<Book> findByBookName(String bookName);
 
     /**
      * 添加新书
-     *
-     * @param bookName
-     * @param path
      */
     @Insert("insert into bookList(bookName, path) values(#{bookName}, #{path})")
     void save(@Param("bookName") String bookName, @Param("path") String path);
+
+    /**
+     * 分页查询, 一页1000
+     */
+    @Select("select id, bookName, path from bookList limit #{page}, 1000")
+    List<Book> findAllForPage(@Param("page") Integer page);
 }

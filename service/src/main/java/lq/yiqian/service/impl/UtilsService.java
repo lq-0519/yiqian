@@ -1,12 +1,13 @@
 package lq.yiqian.service.impl;
 
+import lq.yiqian.dao.BookListDao;
 import lq.yiqian.service.IUtilsService;
 import lq.yiqian.utils.es.pojo.Book;
 import lq.yiqian.utils.es.repository.BookRepository;
 import lq.yiqian.utils.es.resultMapper.HighlightResultMapper;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.search.fetch.subphase.highlight.HighlightBuilder;
-import org.springframework.data.domain.Page;
+import org.springframework.beans.BeanUtils;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
 import org.springframework.data.elasticsearch.core.aggregation.AggregatedPage;
@@ -16,6 +17,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -31,6 +33,9 @@ public class UtilsService implements IUtilsService {
     @Resource
     private BookRepository bookRepository;
 
+    @Resource
+    private BookListDao bookListDao;
+
     @Override
     public void addAll() {
 
@@ -39,6 +44,7 @@ public class UtilsService implements IUtilsService {
     @Override
     public void createIndex() {
         try {
+            elasticsearchTemplate.deleteIndex(Book.class);
             elasticsearchTemplate.createIndex(Book.class);
             elasticsearchTemplate.putMapping(Book.class);
         } catch (Exception e) {
@@ -56,20 +62,10 @@ public class UtilsService implements IUtilsService {
         bookRepository.saveAll(books);
     }
 
-    @Override
-    public void findAll(String bookName) {
-        SearchQuery queryBuilder = new NativeSearchQueryBuilder()
-                .withQuery(QueryBuilders.matchQuery("bookName", bookName))
-                .withHighlightFields(new HighlightBuilder
-                        .Field("bookName")
-                        .preTags("<font>")
-                        .postTags("</font>"))
-                .build();
-        Page<Book> books = this.elasticsearchTemplate.queryForPage(queryBuilder, Book.class, new HighlightResultMapper());
-        System.out.println("books = " + books);
-        books.forEach(System.out::println);
-    }
 
+    /**
+     * 根据书名查询
+     */
     @Override
     public AggregatedPage<Book> findByBookName(String bookName, int page, int size) {
         SearchQuery queryBuilder = new NativeSearchQueryBuilder()
@@ -81,5 +77,30 @@ public class UtilsService implements IUtilsService {
                 .withPageable(PageRequest.of(page - 1, size))
                 .build();
         return this.elasticsearchTemplate.queryForPage(queryBuilder, Book.class, new HighlightResultMapper());
+    }
+
+    @Override
+    public void save(String bookName, String path) {
+        bookRepository.save(new Book(bookName, path));
+    }
+
+    @Override
+    public void dataTransferToES() {
+        long start = System.currentTimeMillis();
+        int page = 1;
+        List<lq.yiqian.domain.Book> all;
+        do {
+            all = bookListDao.findAllForPage((page - 1) * 1000);
+            page++;
+            LinkedList<Book> books = new LinkedList<>();
+            for (lq.yiqian.domain.Book book : all) {
+                Book book1 = new Book();
+                BeanUtils.copyProperties(book, book1);
+                books.add(book1);
+            }
+            bookRepository.saveAll(books);
+        } while (all.size() == 1000);
+        long end = System.currentTimeMillis();
+        System.out.println("数据转移耗时: " + (end - start) + " ms");
     }
 }

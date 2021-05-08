@@ -17,7 +17,6 @@ import javax.annotation.Resource;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
-import java.util.List;
 
 /**
  * @author LQ
@@ -73,6 +72,7 @@ public class BookListController {
         searchRecord(request, bookName, isSave, (int) total);
         return modelAndView;
     }
+
 
     private void searchRecord(HttpServletRequest request, String bookName, Integer isSave, int total) {
         if (isSave == 1) {

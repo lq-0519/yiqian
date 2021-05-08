@@ -16,7 +16,7 @@
         <module>domain</module>
     </modules>
     <properties>
-        <spring.version>5.0.2.RELEASE</spring.version>
+        <spring.version>5.2.7.RELEASE</spring.version>
         <slf4j.version>1.6.6</slf4j.version>
         <log4j.version>1.2.12</log4j.version>
         <mysql.version>5.1.47</mysql.version>
@@ -143,11 +143,11 @@
             <artifactId>pagehelper</artifactId>
             <version>5.1.2</version>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-web</artifactId>
-            <version>${spring.security.version}</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.security</groupId>-->
+<!--            <artifactId>spring-security-web</artifactId>-->
+<!--            <version>${spring.security.version}</version>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-config</artifactId>
@@ -196,10 +196,12 @@
             <version>1.1.37</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-elasticsearch -->
         <dependency>
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-elasticsearch</artifactId>
-            <version>3.0.11.RELEASE</version>
+            <version>3.2.12.RELEASE</version>
         </dependency>
+
     </dependencies>
 </project>

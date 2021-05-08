@@ -29,6 +29,11 @@ public class Book {
         this.path = path;
     }
 
+    public Book(String bookName, String path) {
+        this.bookName = bookName;
+        this.path = path;
+    }
+
     public Long getId() {
         return id;
     }

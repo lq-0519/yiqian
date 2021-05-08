@@ -45,4 +45,9 @@ public class HighlightResultMapper implements SearchResultMapper {
         }
         return new AggregatedPageImpl<>(list, pageable, totalHits);
     }
+
+    @Override
+    public <T> T mapSearchHit(SearchHit searchHit, Class<T> aClass) {
+        return null;
+    }
 }

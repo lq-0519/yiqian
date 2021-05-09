@@ -86,6 +86,7 @@ public class UtilsService implements IUtilsService {
 
     @Override
     public void dataTransferToES() {
+        System.out.println("数据转移开始...");
         long start = System.currentTimeMillis();
         int page = 1;
         List<lq.yiqian.domain.Book> all;

@@ -79,7 +79,7 @@
                                 <span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span>
                                 书库热搜
                             </a></li>
-                            <li><a target="_blank" href="https://gitee.com/yi-qian/yiqian/commits/master">
+                            <li><a target="_blank" href="https://github.com/lq-0519/yiqian/commits/master">
                                 <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
                                 最近更新
                             </a></li>

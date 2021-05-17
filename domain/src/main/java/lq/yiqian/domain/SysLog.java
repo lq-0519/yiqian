@@ -16,8 +16,7 @@ public class SysLog {
     private String browser;// 访问者的浏览器
     private String operatingSystem;// 访问者的操作系统
 
-    public SysLog(Integer id) {
-        this.id = id;
+    public SysLog() {
     }
 
     public SysLog(Integer id, Date visitTime, String ip, Long executionTime, String uri, String browser, String operatingSystem) {

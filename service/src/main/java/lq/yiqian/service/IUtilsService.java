@@ -19,4 +19,6 @@ public interface IUtilsService {
     void save(String bookName, String path);
 
     void dataTransferToES();
+
+    void updateSearchNum();
 }

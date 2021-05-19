@@ -16,6 +16,7 @@ import org.springframework.data.elasticsearch.core.query.SearchQuery;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import javax.servlet.ServletContext;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -35,6 +36,12 @@ public class UtilsService implements IUtilsService {
 
     @Resource
     private BookListDao bookListDao;
+
+    @Resource
+    private ServletContext servletContext;
+
+    @Resource
+    private SearchHistoryService searchHistoryService;
 
     @Override
     public void addAll() {
@@ -103,5 +110,13 @@ public class UtilsService implements IUtilsService {
         } while (all.size() == 1000);
         long end = System.currentTimeMillis();
         System.out.println("数据转移耗时: " + (end - start) + " ms");
+    }
+
+    @Override
+    public void updateSearchNum() {
+        // 查询搜索历史, 获取总搜索次数
+        Integer searchTotal = searchHistoryService.getTotalCount();
+        // 将总的搜索次数放到session中
+        servletContext.setAttribute("searchTotal", searchTotal + "");
     }
 }

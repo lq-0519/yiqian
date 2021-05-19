@@ -52,8 +52,10 @@ public interface SearchHistoryDao {
      * <p>
      * 根据书名分组, 然后在排序
      *
-     * @return
      */
     @Select("select bookName, count(*) numberOfSearches from searchHistory group by bookName ORDER BY count(*) DESC ")
     List<TopSearch> findTopSearch();
+
+    @Select("select count(id) from searchHistory")
+    Integer getTotalCount();
 }

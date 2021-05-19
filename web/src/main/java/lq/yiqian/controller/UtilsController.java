@@ -46,4 +46,12 @@ public class UtilsController {
     public void dataTransferToES() {
         utilsService.dataTransferToES();
     }
+
+    /**
+     * 更新总搜索次数
+     */
+    @RequestMapping("updateSearchNum")
+    public void updateSearchNum(){
+        utilsService.updateSearchNum();
+    }
 }

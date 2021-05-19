@@ -62,4 +62,9 @@ public class SearchHistoryService implements ISearchHistoryService {
         PageHelper.startPage(page, size);
         return searchHistoryDao.findTopSearch();
     }
+
+    @Override
+    public Integer getTotalCount() {
+        return searchHistoryDao.getTotalCount();
+    }
 }

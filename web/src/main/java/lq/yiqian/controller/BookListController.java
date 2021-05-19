@@ -69,7 +69,7 @@ public class BookListController {
             modelAndView.setViewName("pages/resultEmpty");
         }
         // 记录搜索
-        searchRecord(request, bookName, isSave, (int) total);
+        this.searchRecord(request, bookName, isSave, (int) total);
         return modelAndView;
     }
 
@@ -93,8 +93,6 @@ public class BookListController {
             searchTotal++;
             // 更新ServletContext里面的值
             servletContext.setAttribute("searchTotal", searchTotal + "");
-            // 更新数据库
-            variableService.updateSearchTotal("searchTotal", "" + searchTotal);// 更新数据库
         }
     }
 }

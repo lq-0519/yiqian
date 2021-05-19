@@ -19,4 +19,9 @@ public interface ISearchHistoryService {
     void save(SearchHistory searchHistory);
 
     List<TopSearch> findTopSearch(Integer page, Integer size);
+
+    /**
+     * 获取总的搜索次数
+     */
+    Integer getTotalCount();
 }

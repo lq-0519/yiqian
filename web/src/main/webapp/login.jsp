@@ -40,8 +40,6 @@
 
         <font color="red">${loginErrorMsg}</font>
         <button class="btn btn-lg btn-primary btn-block" type="submit">登陆</button>
-
-        <font color="gray">有特殊需求可向群主索要密码</font>
     </form>
 
 </div> <!-- /container -->

@@ -39,7 +39,7 @@ public class InitApplicationListener implements ServletContextListener {
         assert applicationContext != null;
         IVariableService variableService = (IVariableService) applicationContext.getBean("variableService");// 获取noticeService对象
         // 获取searchHistory的bean对象
-        ISearchHistoryService SearchHistoryService = (ISearchHistoryService) applicationContext.getBean("SearchHistoryService");
+        ISearchHistoryService searchHistoryService = (ISearchHistoryService) applicationContext.getBean("searchHistoryService");
         //从数据库中加载
         List<Variable> variables= variableService.findAll();
         // 添加到servletContext中
@@ -47,7 +47,7 @@ public class InitApplicationListener implements ServletContextListener {
             servletContext.setAttribute(variable.getName(), variable.getValue());
         }
         // 获取总数
-        Integer searchTotal = SearchHistoryService.getTotalCount();
+        Integer searchTotal = searchHistoryService.getTotalCount();
         // 设置总数
         servletContext.setAttribute("searchTotal", searchTotal + "");
     }

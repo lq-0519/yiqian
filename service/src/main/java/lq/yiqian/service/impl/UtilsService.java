@@ -1,6 +1,7 @@
 package lq.yiqian.service.impl;
 
 import lq.yiqian.dao.BookListDao;
+import lq.yiqian.service.ISearchHistoryService;
 import lq.yiqian.service.IUtilsService;
 import lq.yiqian.utils.es.pojo.Book;
 import lq.yiqian.utils.es.repository.BookRepository;
@@ -41,7 +42,7 @@ public class UtilsService implements IUtilsService {
     private ServletContext servletContext;
 
     @Resource
-    private SearchHistoryService searchHistoryService;
+    private ISearchHistoryService searchHistoryService;
 
     @Override
     public void addAll() {

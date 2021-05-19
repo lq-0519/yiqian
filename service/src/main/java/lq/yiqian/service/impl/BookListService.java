@@ -1,6 +1,5 @@
 package lq.yiqian.service.impl;
 
-import com.alibaba.fastjson.JSON;
 import com.github.pagehelper.PageInfo;
 import lq.yiqian.dao.BookListDao;
 import lq.yiqian.service.IBookListService;
@@ -35,13 +34,11 @@ public class BookListService implements IBookListService {
     public PageInfo<Book> findByBookName(String bookName, int page, int size) {
         AggregatedPage<Book> books = utilsService.findByBookName(bookName, page, size);
         PageInfo<Book> pageInfo = new PageInfo<>(books.getContent());
-        System.out.println("pageInfo = " + JSON.toJSONString(pageInfo));
         pageInfo.setPageNum(page);
         pageInfo.setTotal(books.getTotalElements());
         pageInfo.setPages(books.getTotalPages());
         pageInfo.setList(books.getContent());
         pageInfo.setNavigatepageNums(this.getNavigatePageNums(books.getTotalPages(), page));
-        System.out.println("封装后的pageInfo = " + JSON.toJSONString(pageInfo));
         return pageInfo;
     }
 

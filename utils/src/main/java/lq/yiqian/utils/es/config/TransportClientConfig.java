@@ -25,7 +25,7 @@ public class TransportClientConfig extends ElasticsearchConfigurationSupport {
     public Client elasticsearchClient() throws UnknownHostException {
         Settings settings = Settings.builder().put("", "").build();
         TransportClient client = new PreBuiltTransportClient(settings);
-        client.addTransportAddress(new TransportAddress(InetAddress.getByName("182.92.81.132"), 9300));
+        client.addTransportAddress(new TransportAddress(InetAddress.getByName("127.0.0.1"), 9300));
         return client;
     }
 

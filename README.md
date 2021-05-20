@@ -10,6 +10,7 @@
 2. MySQL/5.7.28
 3. Redis/5.0.5
 4. Linux/4.15.0-48-generic
+5. elasticsearch/6.4.0
 
 #### 待优化
 

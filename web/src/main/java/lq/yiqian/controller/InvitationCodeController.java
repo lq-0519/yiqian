@@ -5,12 +5,12 @@ import lq.yiqian.domain.InvitationCode;
 import lq.yiqian.domain.RegiBook;
 import lq.yiqian.service.IInvitationCodeService;
 import lq.yiqian.service.IRegiBookService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
@@ -25,9 +25,9 @@ import java.util.List;
 @Controller
 @RequestMapping("/invitationCode")
 public class InvitationCodeController {
-    @Autowired
+    @Resource
     private IInvitationCodeService invitationCodeService;
-    @Autowired
+    @Resource
     private IRegiBookService regiBookService;
 
     /**
@@ -71,12 +71,6 @@ public class InvitationCodeController {
      * 添加邀请码
      * <p>
      * 添加邀请码之前要先看看这个邀请码是否已经存在
-     *
-     * @param username
-     * @param userId
-     * @param accountType
-     * @param session
-     * @return
      */
     @RequestMapping("/addInvitationCode")
     public String addInvitationCode(@RequestParam(name = "username") String username,

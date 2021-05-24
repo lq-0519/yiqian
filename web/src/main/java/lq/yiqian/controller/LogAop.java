@@ -8,9 +8,9 @@ import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 
@@ -25,9 +25,9 @@ import java.util.Date;
 @Component
 @Aspect
 public class LogAop {
-    @Autowired
+    @Resource
     private HttpServletRequest request;
-    @Autowired
+    @Resource
     private ISysLogService sysLogService;
 
     private Date visitTime; //开始时间
@@ -37,8 +37,6 @@ public class LogAop {
      * 前置通知
      * <p>
      * 主要获取开始时间 执行的类 执行的方法
-     *
-     * @param joinPoint
      */
     @Before("execution(* lq.yiqian.controller.*.*(..))")
     public void doBefore(JoinPoint joinPoint) throws NoSuchMethodException {
@@ -54,8 +52,6 @@ public class LogAop {
      * <p>
      * 获取访问的ip
      * 获取访问的时长
-     *
-     * @param joinPoint
      */
     @After("execution(* lq.yiqian.controller.*.*(..))")
     public void doAfter(JoinPoint joinPoint) {

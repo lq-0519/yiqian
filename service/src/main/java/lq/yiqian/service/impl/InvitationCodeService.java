@@ -72,14 +72,29 @@ public class InvitationCodeService implements IInvitationCodeService {
     @Override
     public String createInvitationCode() {
         // 产生邀请码
-        String invitationCode = getRandomString(4);
+        String invitationCode = this.getRandomString();
         // 判断邀请码是否已经存在
         while (invitationCodeDao.findById(invitationCode) != null) {
             // 存在继续产生
-            invitationCode = getRandomString(4);
+            invitationCode = getRandomString();
         }
         // 不存在代表这个邀请码可用, 直接返回
         return invitationCode;
+    }
+
+    /**
+     * 产生一个随机的邀请码
+     *
+     */
+    private String getRandomString() {
+        String str = "abcdefghijklmnopqrstuvwxyz0123456789";
+        Random random = new Random();
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < 4; i++) {
+            int number = random.nextInt(36);
+            sb.append(str.charAt(number));
+        }
+        return sb.toString();
     }
 
     /**
@@ -118,19 +133,5 @@ public class InvitationCodeService implements IInvitationCodeService {
         invitationCodeDao.updateById_username_accountType_sum_last(invitationCode);
     }
 
-    /**
-     * 产生一个随机的邀请码
-     *
-     * @param length 控制邀请码的位数
-     */
-    public String getRandomString(int length) {
-        String str = "abcdefghijklmnopqrstuvwxyz0123456789";
-        Random random = new Random();
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < length; i++) {
-            int number = random.nextInt(36);
-            sb.append(str.charAt(number));
-        }
-        return sb.toString();
-    }
+
 }

@@ -8,12 +8,9 @@ import org.apache.ibatis.annotations.Select;
 import java.util.List;
 
 /**
- * @author LQ
- * @create 2020-06-24 15:57
- */
-
-/**
  * 操作BookList表
+ * @create 2020-06-24 15:57
+ * @author yiqian
  */
 public interface BookListDao {
     /**

@@ -15,12 +15,9 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 
 /**
- * @author LQ
- * @create 2020-06-09 20:08
- */
-
-/**
  * 记录用户操作
+ * @create 2020-06-09 20:08
+ * @author yiqian
  */
 @Component
 @Aspect
@@ -30,8 +27,15 @@ public class LogAop {
     @Resource
     private ISysLogService sysLogService;
 
-    private Date visitTime; //开始时间
-    private Class aClass; //访问的类
+    /**
+     * 开始时间
+     */
+    private Date visitTime;
+
+    /**
+     * 访问的类
+     */
+    private Class aClass;
 
     /**
      * 前置通知
@@ -39,11 +43,13 @@ public class LogAop {
      * 主要获取开始时间 执行的类 执行的方法
      */
     @Before("execution(* lq.yiqian.controller.*.*(..))")
-    public void doBefore(JoinPoint joinPoint) throws NoSuchMethodException {
-        aClass = joinPoint.getTarget().getClass();//访问的类
+    public void doBefore(JoinPoint joinPoint) {
+        //访问的类
+        aClass = joinPoint.getTarget().getClass();
         if (aClass != LogAop.class && aClass != SysLogController.class) {
             //如果执行的是LogAop类就直接跳过就行
-            visitTime = new Date();//开始时间
+            //开始时间
+            visitTime = new Date();
         }
     }
 
@@ -53,11 +59,12 @@ public class LogAop {
      * 获取访问的ip
      * 获取访问的时长
      */
+    @SuppressWarnings("unused")
     @After("execution(* lq.yiqian.controller.*.*(..))")
     public void doAfter(JoinPoint joinPoint) {
         if (aClass != null && aClass != LogAop.class && aClass != SysLogController.class) {
             //获取访问的时长
-            long time = new Date().getTime() - visitTime.getTime();
+            long time = System.currentTimeMillis() - visitTime.getTime();
             //获取访问的ip地址
             String ip = IpUtils.getIp(request);
             // 获取访问者的浏览器

@@ -22,6 +22,7 @@ public class ExceptionFilter implements Filter {
         try {// 捕获错误
             chain.doFilter(request, response);
         } catch (Exception e) {
+            // TODO: 2021/5/31 将错误信息入库
             // 存储错误信息
             request.setAttribute("errorMsg", e.getMessage());
             // 跳转到错误界面
